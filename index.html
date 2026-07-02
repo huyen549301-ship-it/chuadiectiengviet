@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="styles.css?v=1.2">
+    <title>Luyện Từ Vựng</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Luyện Từ Vựng</h1>
+        <div id="menu">
+            <button onclick="startLesson(1)">Bài 1</button>
+            <button onclick="startLesson(2)">Bài 2</button>
+            <button onclick="startLesson(3)">Bài 3</button>
+            <button onclick="startLesson(4)">Bài 4</button>
+            <button onclick="startLesson(5)">Bài 5</button>
+            <button onclick="startLesson(6)">Bài 6</button>
+            <button onclick="startLesson(7)">Bài 7</button>
+            <button onclick="startLesson(8)">Bài 8</button>
+            <button onclick="startLesson(9)">Bài 9</button>
+            <button onclick="startLesson(10)">Bài 10</button>
+            <button onclick="startLesson(11)">Bài 11</button>
+            <button onclick="startLesson(12)">Bài 12</button>
+            <button onclick="startLesson(13)">Bài 13</button>
+            <button onclick="startLesson(14)">Bài 14</button>
+            <button onclick="startLesson(15)">Bài 15</button>
+            <button onclick="startLesson(16)">Bài 16</button>
+            <button onclick="startLesson('形容词')">形容词</button>
+            <button onclick="startLesson('动作')">动作</button>
+            <button onclick="startLesson('动物')">动物</button>
+            <button onclick="startLesson('单位')">单位</button>
+        </div>
+        
+<div id="game-container" style="display:none;">
+            <h2 id="question"></h2>
+            <div id="options"></div>
+        </div>
+    </div> 
+
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <h2>Hoàn thành!</h2>
+            <p id="resultText"></p>
+            <button onclick="location.reload()">Quay lại chọn bài</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
