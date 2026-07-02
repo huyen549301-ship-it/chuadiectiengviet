@@ -86,7 +86,7 @@ function speakQuestion() {
     
     const utterance = new SpeechSynthesisUtterance(questionText);
     utterance.lang = 'vi-VN'; // Ngôn ngữ Tiếng Việt
-    utterance.rate = 0.9;     // Tốc độ đọc (1 là bình thường)
+    utterance.rate = 0.75;     // Tốc độ đọc (1 là bình thường)
     utterance.pitch = 1;      // Độ cao giọng
     
     // Tìm giọng đọc tiếng Việt (thường là Google Tiếng Việt)
