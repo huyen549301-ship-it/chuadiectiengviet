@@ -50,7 +50,7 @@ function loadQuestion() {
         return;
     }
     const current = wordQueue[0];
-    document.getElementById('question').innerText = `Từ "${current.word}" nghĩa là gì?`;
+    document.getElementById('question').innerText = current.word;
     
     // Đảm bảo có ít nhất 4 từ trong bài để tạo 4 đáp án
     // Nếu bài học ít hơn 4 từ, logic này vẫn hoạt động nhưng sẽ lấy trùng
