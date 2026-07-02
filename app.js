@@ -11,6 +11,9 @@ async function loadData() {
     } catch (e) { alert("Lỗi tải file data.json"); }
 }
 loadData();
+window.speechSynthesis.onvoiceschanged = () => {
+    console.log("Danh sách giọng đọc đã sẵn sàng");
+};
 
 // 2. Bắt đầu bài học - Cập nhật để lọc đúng dữ liệu từng bài
 function startLesson(lessonId) {
@@ -67,28 +70,57 @@ while(options.length < 4 && options.length < wordQueue.length) {
         btn.onclick = () => checkAnswer(opt, current.meaning, btn);
         optionsEl.appendChild(btn);
     });
+
+    // Tự động đọc sau khi câu hỏi hiển thị 300ms
+    setTimeout(() => {
+        speakQuestion();
+    }, 300);
+}
+
+// Hàm phát âm thanh
+function speakQuestion() {
+    const questionText = document.getElementById('question').innerText;
+    
+    // Hủy các âm thanh đang phát (tránh bị chồng tiếng)
+    window.speechSynthesis.cancel();
+    
+    const utterance = new SpeechSynthesisUtterance(questionText);
+    utterance.lang = 'vi-VN'; // Ngôn ngữ Tiếng Việt
+    utterance.rate = 0.9;     // Tốc độ đọc (1 là bình thường)
+    utterance.pitch = 1;      // Độ cao giọng
+    
+    // Tìm giọng đọc tiếng Việt (thường là Google Tiếng Việt)
+    const voices = window.speechSynthesis.getVoices();
+    const viVoice = voices.find(v => v.lang === 'vi-VN' || v.name.includes('Vietnamese'));
+    if (viVoice) utterance.voice = viVoice;
+    
+    window.speechSynthesis.speak(utterance);
 }
 
 // 4. Kiểm tra đáp án (Nếu sai, đưa từ đó xuống cuối danh sách)
 function checkAnswer(selected, correct, btn) {
+    // 1. Khóa tất cả các nút ngay lập tức
+    document.getElementById('options').style.pointerEvents = 'none';
+    
     totalAttempts++;
     if (selected === correct) {
         correctAttempts++;
-        btn.style.backgroundColor = "#4CAF50"; // Màu xanh
-        // Trả lời đúng: Xóa từ khỏi hàng đợi và tải câu tiếp theo
+        btn.style.backgroundColor = "#4CAF50";
         setTimeout(() => { 
             wordQueue.shift(); 
+            // 2. Mở khóa lại sau khi đã xử lý xong
+            document.getElementById('options').style.pointerEvents = 'auto';
             loadQuestion(); 
         }, 500);
     } else {
-        btn.style.backgroundColor = "#f44336"; // Màu đỏ
-        // Trả lời sai: Đưa từ hiện tại xuống cuối hàng đợi
+        btn.style.backgroundColor = "#f44336";
         const wrongWord = wordQueue.shift(); 
         wordQueue.push(wrongWord); 
-        
         setTimeout(() => { 
             btn.style.backgroundColor = "#007bff"; 
-            loadQuestion(); // Tải lại câu tiếp theo (lúc này từ sai đã nằm ở cuối)
+            // 2. Mở khóa lại
+            document.getElementById('options').style.pointerEvents = 'auto';
+            loadQuestion(); 
         }, 500);
     }
 }
