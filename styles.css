@@ -41,17 +41,19 @@ button:hover { background: #0056b3; }
     display: flex;
     flex-direction: column;
     align-items: center; 
-    gap: 10px;          
-    width: 100%;
-    margin-top: 20px;   
+    justify-content: center; 
+    width: 100%;             
+    box-sizing: border-box;  
+    margin: 20px auto 0 auto; 
+    padding: 0;
 }
 
 #options button {
     display: block;      
     width: 80%;          
     max-width: 300px;    
-    margin: 0;           
-    padding: 15px;      
+    margin: 0 auto;     
+    padding: 15px;       
 }
 
 /* 4. Modal kết quả */
