@@ -29,6 +29,8 @@ button {
     background: #007bff;
     color: white;
     transition: 0.3s;
+    -webkit-tap-highlight-color: transparent; 
+    touch-action: manipulation;
 }
 button:hover { background: #0056b3; }
 
@@ -48,6 +50,14 @@ button:hover { background: #0056b3; }
 .modal-content { background: white; padding: 30px; border-radius: 15px; text-align: center; }
 
 .modal-content h2 { color: #333; }
+#speaker-btn {
+    background: none !important; 
+    padding: 5px !important;
+    font-size: 24px !important; 
+    display: block;
+    margin: 0 auto;
+    border: none !important;
+}
 
 /* 5. Cấu hình trạng thái Ẩn/Hiện đáp án */
 .hidden-text {
