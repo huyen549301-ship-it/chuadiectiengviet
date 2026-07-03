@@ -79,32 +79,40 @@ while(options.length < 4 && options.length < wordQueue.length) {
 
 // Hàm phát âm thanh
 function speakQuestion() {
-    // 1. Lấy nội dung câu hỏi
     const questionElement = document.getElementById('question');
-    if (!questionElement) return;
-    
-    let text = questionElement.innerText;
-    
-    // 2. Xử lý khoảng nghỉ: Thay thế khoảng trắng bằng dấu chấm
-    // Dấu chấm khiến Google TTS hiểu là ngắt nghỉ câu
-    const textWithPauses = text.split(' ').join('. ');
-    
-    // 3. Encode để đưa vào URL
-    const encodedText = encodeURIComponent(textWithPauses);
-    
-    // 4. Tạo URL gọi Google TTS (giọng tiếng Việt - vi)
-    const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=vi&client=tw-ob&q=${encodedText}`;
-    
-    // 5. Phát âm thanh
-    const audio = new Audio(url);
-    
-    // Hủy âm thanh cũ nếu đang phát
-    if (window.currentAudio) {
-        window.currentAudio.pause();
+    if (!questionElement) {
+        console.error("Không tìm thấy phần tử có id='question'");
+        return;
     }
     
+    let text = questionElement.innerText;
+    if (!text) return;
+
+    // Thay thế khoảng trắng bằng dấu chấm để tạo ngắt nghỉ
+    const textWithPauses = text.split(' ').join('. ');
+    const encodedText = encodeURIComponent(textWithPauses);
+    
+    // URL đầy đủ hơn để tránh lỗi chặn từ phía Google
+    const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=vi&client=tw-ob&q=${encodedText}&tk=${Math.floor(Math.random() * 100000)}`;
+    
+    // Dừng âm thanh cũ (nếu có)
+    if (window.currentAudio) {
+        window.currentAudio.pause();
+        window.currentAudio.currentTime = 0;
+    }
+    
+    // Tạo đối tượng Audio mới
+    const audio = new Audio(url);
     window.currentAudio = audio;
-    audio.play();
+    
+    // Thêm xử lý lỗi để debug
+    audio.onerror = (e) => console.error("Lỗi phát âm thanh:", e);
+    
+    // Phát âm thanh và xử lý Promise (tránh lỗi nếu trình duyệt chặn)
+    audio.play().catch(error => {
+        console.error("Trình duyệt chặn phát âm thanh tự động:", error);
+        alert("Vui lòng nhấn vào nút loa để nghe.");
+    });
 }
 
 // 4. Kiểm tra đáp án (Nếu sai, đưa từ đó xuống cuối danh sách)
