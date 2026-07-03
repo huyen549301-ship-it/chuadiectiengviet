@@ -2,6 +2,7 @@ let allWords = [];
 let wordQueue = [];
 let totalAttempts = 0;
 let correctAttempts = 0;
+let currentMode = '';
 
 // 1. Tải dữ liệu
 async function loadData() {
@@ -14,20 +15,29 @@ loadData();
 
 // 2. Bắt đầu bài học
 function startLesson(lessonId) {
-    const mồi = new SpeechSynthesisUtterance("ok");
-    mồi.volume = 0;
-    window.speechSynthesis.speak(mồi);
-    
     wordQueue = allWords.filter(w => w.lesson_id === lessonId);
     if(wordQueue.length === 0) { alert("Bài học này chưa có dữ liệu!"); return; }
     
     wordQueue.sort(() => Math.random() - 0.5);
     
+    // Ẩn menu chọn bài, HIỆN menu chọn chế độ
     document.getElementById('menu').style.display = 'none';
-    document.getElementById('game-container').style.display = 'block';
+    document.getElementById('mode-menu').style.display = 'block';
     
     totalAttempts = 0;
     correctAttempts = 0;
+}
+
+// HÀM NÀY PHẢI NẰM NGOÀI startLesson
+function setMode(mode) {
+    currentMode = mode;
+    document.getElementById('mode-menu').style.display = 'none';
+    document.getElementById('game-container').style.display = 'block';
+    
+    // Mồi âm thanh
+    const mồi = new SpeechSynthesisUtterance("ok");
+    mồi.volume = 0;
+    window.speechSynthesis.speak(mồi);
     
     loadQuestion();
 }
@@ -40,13 +50,18 @@ function loadQuestion() {
     }
     const current = wordQueue[0];
     const questionEl = document.getElementById('question');
-    
-    // Ẩn chữ triệt để
-    questionEl.classList.add('hidden-text'); 
-    questionEl.style.visibility = 'hidden'; 
+
     questionEl.classList.remove('text-correct', 'text-wrong');
-    
     questionEl.innerText = current.word;
+    
+    // Logic ẩn/hiện dựa trên chế độ
+    if (currentMode === 'listen') {
+        questionEl.classList.add('hidden-text');
+        questionEl.style.visibility = 'hidden';
+    } else {
+        questionEl.classList.remove('hidden-text');
+        questionEl.style.visibility = 'visible';
+    }
     
     // Tạo nút đáp án
     let options = [current.meaning];
@@ -70,21 +85,16 @@ function loadQuestion() {
     }, 800);
 }
 
-// 4. Hàm phát âm thanh (Gộp logic)
+// 4. Hàm phát âm thanh
 function speakQuestion() {
     window.speechSynthesis.cancel();
-    // Lấy chữ trực tiếp từ dữ liệu bài học để đảm bảo luôn lấy được dù chữ đang bị ẩn
     const text = wordQueue[0].word;
     const utterance = new SpeechSynthesisUtterance(text);
-    
     utterance.lang = 'vi-VN';
     utterance.rate = 0.6;
-    
-    // Ưu tiên giọng Việt nếu có
     const voices = window.speechSynthesis.getVoices();
     const viVoice = voices.find(v => v.lang === 'vi-VN' || v.name.includes('Vietnamese'));
     if (viVoice) utterance.voice = viVoice;
-
     window.speechSynthesis.speak(utterance);
 }
 
@@ -94,6 +104,7 @@ function checkAnswer(selected, correct, btn) {
     const questionEl = document.getElementById('question');
     
     totalAttempts++;
+    // Khi chọn xong thì luôn hiện chữ để người dùng thấy đáp án đúng
     questionEl.classList.remove('hidden-text');
     questionEl.style.visibility = 'visible';
     
