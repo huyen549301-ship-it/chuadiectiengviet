@@ -35,25 +35,37 @@ button {
 button:hover { background: #0056b3; }
 
 /* 3. Khu vực chơi game (Chứa các nút đáp án) */
-#game-container { max-width: 400px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-
-#options {
+#game-container { 
+    max-width: 400px; 
+    margin: 0 auto; 
+    background: white; 
+    padding: 30px; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     align-items: center; 
-    justify-content: center; 
-    width: 100%;             
-    box-sizing: border-box;  
-    margin: 20px auto 0 auto; 
-    padding: 0;
 }
 
+#options {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;  
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 20px auto 0 auto !important;
+    padding: 0 !important;
+    text-align: center !important; 
+}
+
+/* 2. Sửa nút */
 #options button {
-    display: block;      
-    width: 80%;          
-    max-width: 300px;    
-    margin: 0 auto;     
-    padding: 15px;       
+    display: block !important;      
+    width: 80% !important;          
+    max-width: 300px !important;    
+    margin: 5px auto !important;  
+    padding: 15px !important;       
+    text-align: center !important;  
 }
 
 /* 4. Modal kết quả */
@@ -84,4 +96,6 @@ button:hover { background: #0056b3; }
     min-height: 1.5em; 
     word-wrap: break-word;
     padding: 10px 0;
+    width: 100%;
+    text-align: center;
 } 
