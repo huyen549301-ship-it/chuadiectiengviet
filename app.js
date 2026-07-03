@@ -79,14 +79,6 @@ function loadQuestion() {
         btn.onclick = () => checkAnswer(opt, current.meaning, btn);
         optionsEl.appendChild(btn);
     });
-    
-    // 4. Phát âm thanh sau 500ms
-    setTimeout(() => {
-        speakQuestion();
-    }, 500); 
-}
-
-// ... các hàm khác (checkAnswer, speakQuestion, ...) ở phía dưới ...
 
 // Hàm phát âm thanh
 function speakQuestion() {
