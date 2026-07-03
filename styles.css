@@ -50,31 +50,17 @@ button:hover { background: #0056b3; }
 .modal-content h2 { color: #333; }
 
 /* 5. Cấu hình trạng thái Ẩn/Hiện đáp án */
-#question.hidden-text {
-    color: transparent !important;
-    text-shadow: none !important;
-    opacity: 0 !important;      /* Thêm vào để ẩn hoàn toàn */
-    visibility: hidden !important; /* Thêm vào để trình duyệt không vẽ chữ */
-    user-select: none;
+.hidden-text {
+    opacity: 0 !important;
     pointer-events: none;
+    user-select: none;
 }
 
-/* Màu sắc phản hồi */
-.text-correct { 
-    color: #28a745 !important; 
-    transition: color 0.3s ease; 
-}
-
-.text-wrong { 
-    color: #dc3545 !important; 
-    transition: color 0.3s ease;
-}
-
-/* Đảm bảo tiêu đề câu hỏi hiển thị đẹp khi hiện ra */
 #question {
-    transition: color 0.3s ease, opacity 0.3s ease;
+    transition: opacity 0.5s ease, color 0.3s ease;
+    opacity: 1; /* Mặc định là hiện */
     min-height: 1.5em; 
     word-wrap: break-word;
     padding: 10px 0;
-}
+} 
 
