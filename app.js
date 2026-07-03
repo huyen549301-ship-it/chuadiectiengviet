@@ -87,13 +87,13 @@ function speakQuestion() {
     // Kỹ thuật tạo khoảng nghỉ: 
     // Thay thế khoảng trắng giữa các từ bằng dấu phẩy để tạo ngắt quãng khi đọc
     // Bạn có thể tùy chỉnh regex để ngắt quãng nhiều hơn nếu muốn
-    const spacedText = text.split(' ').join(', ');
+    const spacedText = text.split(' ').join(',');
 
     window.speechSynthesis.cancel();
     
     const utterance = new SpeechSynthesisUtterance(spacedText);
     utterance.lang = 'vi-VN';
-    utterance.rate = 0.7; // Giảm tốc độ hơn nữa để nghe rõ khoảng nghỉ
+    utterance.rate = 0.75; // Giảm tốc độ hơn nữa để nghe rõ khoảng nghỉ
     utterance.pitch = 1.2; // Tăng nhẹ pitch để nghe thanh thoát hơn (giống giọng nữ)
 
     const voices = window.speechSynthesis.getVoices();
