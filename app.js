@@ -44,6 +44,9 @@ function startLesson(lessonId) {
 }
 
 // 3. Tải câu hỏi - Sửa lại để luôn ẩn chữ khi load
+// ... các đoạn code khác ở phía trên ...
+
+// Hàm loadQuestion mới sau khi đã thay thế:
 function loadQuestion() {
     if (wordQueue.length === 0) {
         showResult();
@@ -52,11 +55,15 @@ function loadQuestion() {
     const current = wordQueue[0];
     const questionEl = document.getElementById('question');
     
-    questionEl.innerText = current.word;
-    questionEl.classList.add('hidden-text'); // Luôn ẩn khi load câu mới
-    questionEl.classList.remove('text-correct', 'text-wrong'); // Reset màu
+    // 1. ẨN NGAY LẬP TỨC TRƯỚC KHI GÁN CHỮ
+    questionEl.classList.add('hidden-text'); 
+    questionEl.style.visibility = 'hidden'; // Ép ẩn triệt để
+    questionEl.classList.remove('text-correct', 'text-wrong');
     
-    // ... (Giữ nguyên logic tạo options của bạn) ...
+    // 2. Gán chữ
+    questionEl.innerText = current.word;
+    
+    // 3. Logic tạo nút đáp án (Giữ nguyên đoạn code cũ của bạn ở đây)
     let options = [current.meaning];
     while(options.length < 4 && options.length < wordQueue.length) {
         let rand = wordQueue[Math.floor(Math.random() * wordQueue.length)].meaning;
@@ -72,9 +79,14 @@ function loadQuestion() {
         btn.onclick = () => checkAnswer(opt, current.meaning, btn);
         optionsEl.appendChild(btn);
     });
-
-    setTimeout(() => { speakQuestion(); }, 300);
+    
+    // 4. Phát âm thanh sau 500ms
+    setTimeout(() => {
+        speakQuestion();
+    }, 500); 
 }
+
+// ... các hàm khác (checkAnswer, speakQuestion, ...) ở phía dưới ...
 
 // Hàm phát âm thanh
 function speakQuestion() {
