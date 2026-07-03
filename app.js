@@ -79,35 +79,32 @@ while(options.length < 4 && options.length < wordQueue.length) {
 
 // Hàm phát âm thanh
 function speakQuestion() {
-    const element = document.getElementById('question');
-    if (!element) return;
+    // 1. Lấy nội dung câu hỏi
+    const questionElement = document.getElementById('question');
+    if (!questionElement) return;
     
-    let text = element.innerText;
-
-    // Kỹ thuật tạo khoảng nghỉ: 
-    // Thay thế khoảng trắng giữa các từ bằng dấu phẩy để tạo ngắt quãng khi đọc
-    // Bạn có thể tùy chỉnh regex để ngắt quãng nhiều hơn nếu muốn
-    const spacedText = text.split(' ').join(',');
-
-    window.speechSynthesis.cancel();
+    let text = questionElement.innerText;
     
-    const utterance = new SpeechSynthesisUtterance(spacedText);
-    utterance.lang = 'vi-VN';
-    utterance.rate = 0.75; // Giảm tốc độ hơn nữa để nghe rõ khoảng nghỉ
-    utterance.pitch = 1.2; // Tăng nhẹ pitch để nghe thanh thoát hơn (giống giọng nữ)
-
-    const voices = window.speechSynthesis.getVoices();
+    // 2. Xử lý khoảng nghỉ: Thay thế khoảng trắng bằng dấu chấm
+    // Dấu chấm khiến Google TTS hiểu là ngắt nghỉ câu
+    const textWithPauses = text.split(' ').join('. ');
     
-    // Tìm giọng có tên chứa 'female' hoặc ưu tiên các giọng hệ thống
-    // Lưu ý: Tên giọng phụ thuộc vào OS của người dùng
-    const viVoice = voices.find(v => 
-        (v.lang === 'vi-VN' || v.name.includes('Vietnamese')) && 
-        (v.name.includes('Google') || v.name.includes('Female'))
-    );
+    // 3. Encode để đưa vào URL
+    const encodedText = encodeURIComponent(textWithPauses);
     
-    if (viVoice) utterance.voice = viVoice;
+    // 4. Tạo URL gọi Google TTS (giọng tiếng Việt - vi)
+    const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=vi&client=tw-ob&q=${encodedText}`;
     
-    window.speechSynthesis.speak(utterance);
+    // 5. Phát âm thanh
+    const audio = new Audio(url);
+    
+    // Hủy âm thanh cũ nếu đang phát
+    if (window.currentAudio) {
+        window.currentAudio.pause();
+    }
+    
+    window.currentAudio = audio;
+    audio.play();
 }
 
 // 4. Kiểm tra đáp án (Nếu sai, đưa từ đó xuống cuối danh sách)
