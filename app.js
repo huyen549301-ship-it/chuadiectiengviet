@@ -64,6 +64,10 @@ function loadQuestion() {
         btn.onclick = () => checkAnswer(opt, current.meaning, btn);
         optionsEl.appendChild(btn);
     });
+    
+    setTimeout(() => {
+        speakQuestion();
+    }, 800);
 }
 
 // 4. Hàm phát âm thanh (Gộp logic)
