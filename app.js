@@ -2,7 +2,7 @@ let allWords = [];
 let wordQueue = [];
 let totalAttempts = 0;
 let correctAttempts = 0;
-
+ 
 // 1. Tải dữ liệu
 async function loadData() {
     try {
