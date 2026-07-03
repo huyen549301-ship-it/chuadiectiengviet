@@ -93,7 +93,7 @@ function speakQuestion() {
     
     const utterance = new SpeechSynthesisUtterance(spacedText);
     utterance.lang = 'vi-VN';
-    utterance.rate = 0.75; // Giảm tốc độ hơn nữa để nghe rõ khoảng nghỉ
+    utterance.rate = 0.6; // Giảm tốc độ hơn nữa để nghe rõ khoảng nghỉ
     utterance.pitch = 1.2; // Tăng nhẹ pitch để nghe thanh thoát hơn (giống giọng nữ)
 
     const voices = window.speechSynthesis.getVoices();
