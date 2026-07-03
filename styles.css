@@ -9,7 +9,7 @@ body { font-family: 'Segoe UI', sans-serif; background: #e9ecef; text-align: cen
     max-width: 800px;
     margin: 20px auto;
     padding: 0 10px;
-}
+} 
 
 /* Trên màn hình máy tính (từ 600px trở lên): 4 cột */
 @media (min-width: 600px) {
