@@ -14,6 +14,10 @@ loadData();
  
 // 2. Bắt đầu bài học
 function startLesson(lessonId) {
+    const mồi = new SpeechSynthesisUtterance("ok");
+    mồi.volume = 0;
+    window.speechSynthesis.speak(mồi);
+    
     wordQueue = allWords.filter(w => w.lesson_id === lessonId);
     if(wordQueue.length === 0) { alert("Bài học này chưa có dữ liệu!"); return; }
     
@@ -24,9 +28,6 @@ function startLesson(lessonId) {
     
     totalAttempts = 0;
     correctAttempts = 0;
-
-    // "Mồi" âm thanh để mở khóa trên trình duyệt
-    window.speechSynthesis.speak(new SpeechSynthesisUtterance(""));
     
     loadQuestion();
 }
