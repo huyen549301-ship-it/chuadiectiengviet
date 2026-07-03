@@ -31,7 +31,13 @@
             <button onclick="startLesson('动物')">动物</button>
             <button onclick="startLesson('单位')">单位</button>
         </div>
-        
+
+<div id="mode-menu" style="display:none; text-align: center; margin: 20px auto; max-width: 400px;">
+            <h3>Chọn chế độ học:</h3>
+            <button onclick="setMode('listen')">🎧 Luyện nghe (Nghe - Chọn nghĩa)</button>
+            <button onclick="setMode('look')" style="margin-top: 10px;">👁️ Học từ vựng (Nhìn - Chọn nghĩa)</button>
+        </div>
+
 <div id="game-container" style="display:none;">
     <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
         <h2 id="question" class="hidden-text"></h2>
