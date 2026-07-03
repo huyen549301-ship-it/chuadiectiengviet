@@ -43,23 +43,25 @@ function startLesson(lessonId) {
     loadQuestion();
 }
 
-// 3. Tải câu hỏi (Chỉ lấy đáp án nhiễu trong cùng bài học)
+// 3. Tải câu hỏi - Sửa lại để luôn ẩn chữ khi load
 function loadQuestion() {
     if (wordQueue.length === 0) {
         showResult();
         return;
     }
     const current = wordQueue[0];
-    document.getElementById('question').innerText = current.word;
+    const questionEl = document.getElementById('question');
     
-    // Đảm bảo có ít nhất 4 từ trong bài để tạo 4 đáp án
-    // Nếu bài học ít hơn 4 từ, logic này vẫn hoạt động nhưng sẽ lấy trùng
+    questionEl.innerText = current.word;
+    questionEl.classList.add('hidden-text'); // Luôn ẩn khi load câu mới
+    questionEl.classList.remove('text-correct', 'text-wrong'); // Reset màu
+    
+    // ... (Giữ nguyên logic tạo options của bạn) ...
     let options = [current.meaning];
-    
-while(options.length < 4 && options.length < wordQueue.length) {
-    let rand = wordQueue[Math.floor(Math.random() * wordQueue.length)].meaning;
-    if (!options.includes(rand)) options.push(rand);
-}
+    while(options.length < 4 && options.length < wordQueue.length) {
+        let rand = wordQueue[Math.floor(Math.random() * wordQueue.length)].meaning;
+        if (!options.includes(rand)) options.push(rand);
+    }
     options.sort(() => Math.random() - 0.5);
     
     const optionsEl = document.getElementById('options');
@@ -71,10 +73,7 @@ while(options.length < 4 && options.length < wordQueue.length) {
         optionsEl.appendChild(btn);
     });
 
-    // Tự động đọc sau khi câu hỏi hiển thị 300ms
-    setTimeout(() => {
-        speakQuestion();
-    }, 300);
+    setTimeout(() => { speakQuestion(); }, 300);
 }
 
 // Hàm phát âm thanh
@@ -110,31 +109,38 @@ function speakQuestion() {
     window.speechSynthesis.speak(utterance);
 }
 
-// 4. Kiểm tra đáp án (Nếu sai, đưa từ đó xuống cuối danh sách)
+// 4. Kiểm tra đáp án - Tích hợp hiện màu và đợi 3 giây
 function checkAnswer(selected, correct, btn) {
-    // 1. Khóa tất cả các nút ngay lập tức
     document.getElementById('options').style.pointerEvents = 'none';
+    const questionEl = document.getElementById('question');
     
     totalAttempts++;
+    
+    // Hiện chữ ngay khi chọn
+    questionEl.classList.remove('hidden-text');
+    
     if (selected === correct) {
         correctAttempts++;
         btn.style.backgroundColor = "#4CAF50";
+        questionEl.classList.add('text-correct'); // Màu xanh
+        
         setTimeout(() => { 
             wordQueue.shift(); 
-            // 2. Mở khóa lại sau khi đã xử lý xong
             document.getElementById('options').style.pointerEvents = 'auto';
             loadQuestion(); 
-        }, 500);
+        }, 3000); // Đợi 3 giây
     } else {
         btn.style.backgroundColor = "#f44336";
+        questionEl.classList.add('text-wrong'); // Màu đỏ
+        
         const wrongWord = wordQueue.shift(); 
         wordQueue.push(wrongWord); 
+        
         setTimeout(() => { 
             btn.style.backgroundColor = "#007bff"; 
-            // 2. Mở khóa lại
             document.getElementById('options').style.pointerEvents = 'auto';
             loadQuestion(); 
-        }, 500);
+        }, 3000); // Đợi 3 giây
     }
 }
 
