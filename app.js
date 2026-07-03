@@ -44,41 +44,27 @@ function startLesson(lessonId) {
 }
 
 // 3. Tải câu hỏi - Sửa lại để luôn ẩn chữ khi load
-// ... các đoạn code khác ở phía trên ...
+function speakQuestion() {
+    const element = document.getElementById('question');
+    if (!element) return;
+    
+    // Lấy nội dung từ biến global hoặc từ chính object hiện tại thay vì từ giao diện bị ẩn
+    const text = wordQueue[0].word; 
 
-// Hàm loadQuestion mới sau khi đã thay thế:
-function loadQuestion() {
-    if (wordQueue.length === 0) {
-        showResult();
-        return;
-    }
-    const current = wordQueue[0];
-    const questionEl = document.getElementById('question');
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
     
-    // 1. ẨN NGAY LẬP TỨC TRƯỚC KHI GÁN CHỮ
-    questionEl.classList.add('hidden-text'); 
-    questionEl.style.visibility = 'hidden'; // Ép ẩn triệt để
-    questionEl.classList.remove('text-correct', 'text-wrong');
+    // Cấu hình giọng đọc
+    utterance.lang = 'vi-VN';
+    utterance.rate = 0.6;
     
-    // 2. Gán chữ
-    questionEl.innerText = current.word;
-    
-    // 3. Logic tạo nút đáp án (Giữ nguyên đoạn code cũ của bạn ở đây)
-    let options = [current.meaning];
-    while(options.length < 4 && options.length < wordQueue.length) {
-        let rand = wordQueue[Math.floor(Math.random() * wordQueue.length)].meaning;
-        if (!options.includes(rand)) options.push(rand);
-    }
-    options.sort(() => Math.random() - 0.5);
-    
-    const optionsEl = document.getElementById('options');
-    optionsEl.innerHTML = '';
-    options.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.innerText = opt;
-        btn.onclick = () => checkAnswer(opt, current.meaning, btn);
-        optionsEl.appendChild(btn);
-    });
+    // CẦN THIẾT: Đợi danh sách giọng nạp xong
+    const voices = window.speechSynthesis.getVoices();
+    const viVoice = voices.find(v => v.lang === 'vi-VN');
+    if (viVoice) utterance.voice = viVoice;
+
+    window.speechSynthesis.speak(utterance);
+}
 
 // Hàm phát âm thanh
 function speakQuestion() {
