@@ -48,3 +48,27 @@ button:hover { background: #0056b3; }
 .modal-content { background: white; padding: 30px; border-radius: 15px; text-align: center; }
 
 .modal-content h2 { color: #333; }
+
+/* 5. Cấu hình trạng thái Ẩn/Hiện đáp án */
+#question.hidden-text {
+    color: transparent !important;
+    user-select: none; /* Không cho copy */
+    pointer-events: none; /* Không cho click vào chữ */
+}
+
+/* Màu sắc phản hồi */
+.text-correct { 
+    color: #28a745 !important; /* Xanh lá khi đúng */
+    transition: color 0.3s ease; 
+}
+
+.text-wrong { 
+    color: #dc3545 !important; /* Đỏ khi sai */
+    transition: color 0.3s ease;
+}
+
+/* Đảm bảo tiêu đề câu hỏi hiển thị đẹp khi hiện ra */
+#question {
+    transition: color 0.3s ease;
+    min-height: 1.5em; /* Giữ chỗ để không bị nhảy khung hình */
+}
