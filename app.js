@@ -28,7 +28,7 @@ function startLesson(lessonId) {
     correctAttempts = 0;
 }
 
-// HÀM NÀY PHẢI NẰM NGOÀI startLesson
+
 function setMode(mode) {
     currentMode = mode;
     document.getElementById('mode-menu').style.display = 'none';
@@ -48,19 +48,25 @@ function loadQuestion() {
         showResult();
         return;
     }
-    const current = wordQueue[0];
-    const questionEl = document.getElementById('question');
 
+    const questionEl = document.getElementById('question');
+    const speakerBtn = document.getElementById('speaker-btn');
+    const current = wordQueue[0];
+
+    // Reset trạng thái
     questionEl.classList.remove('text-correct', 'text-wrong');
-    questionEl.innerText = current.word;
-    
-    // Logic ẩn/hiện dựa trên chế độ
+
     if (currentMode === 'listen') {
-        questionEl.classList.add('hidden-text');
-        questionEl.style.visibility = 'hidden';
+        questionEl.innerText = "???"; 
+        questionEl.style.visibility = 'hidden'; // Ẩn chữ
+        speakerBtn.style.display = 'block';     // Hiện loa
+        
+        setTimeout(() => speakQuestion(), 800);
     } else {
-        questionEl.classList.remove('hidden-text');
-        questionEl.style.visibility = 'visible';
+        questionEl.innerText = current.word; 
+        questionEl.style.visibility = 'visible'; // Ép hiện chữ rõ ràng
+        questionEl.style.display = 'block';      // Ép hiện block
+        speakerBtn.style.display = 'none';       // Ẩn loa
     }
     
     // Tạo nút đáp án
