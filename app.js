@@ -98,7 +98,7 @@ function checkAnswer(selected, correct, btn) {
             wordQueue.shift(); 
             document.getElementById('options').style.pointerEvents = 'auto';
             loadQuestion(); 
-        }, 3000);
+        }, 1500);
     } else {
         btn.style.backgroundColor = "#f44336";
         questionEl.classList.add('text-wrong');
@@ -112,7 +112,7 @@ function checkAnswer(selected, correct, btn) {
             btn.style.backgroundColor = "#007bff"; 
             document.getElementById('options').style.pointerEvents = 'auto';
             loadQuestion(); 
-        }, 3000);
+        }, 1500);
     }
 } 
 
