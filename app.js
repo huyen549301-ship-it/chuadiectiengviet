@@ -28,7 +28,6 @@ function startLesson(lessonId) {
     correctAttempts = 0;
 }
 
-// HÀM NÀY PHẢI NẰM NGOÀI startLesson
 function setMode(mode) {
     currentMode = mode;
     document.getElementById('mode-menu').style.display = 'none';
@@ -51,19 +50,13 @@ function loadQuestion() {
     const current = wordQueue[0];
     const questionEl = document.getElementById('question');
 
-    questionEl.classList.remove('text-correct', 'text-wrong');
     questionEl.innerText = current.word;
-    
-    // Logic ẩn/hiện dựa trên chế độ
+    questionEl.classList.remove('hidden-text', 'text-correct', 'text-wrong');
+
     if (currentMode === 'listen') {
         questionEl.classList.add('hidden-text');
-        questionEl.style.visibility = 'hidden';
-    } else {
-        questionEl.classList.remove('hidden-text');
-        questionEl.style.visibility = 'visible';
     }
-    
-    // Tạo nút đáp án
+
     let options = [current.meaning];
     while(options.length < 4 && options.length < wordQueue.length) {
         let rand = wordQueue[Math.floor(Math.random() * wordQueue.length)].meaning;
@@ -80,42 +73,22 @@ function loadQuestion() {
         optionsEl.appendChild(btn);
     });
     
-// Lấy phần tử nút loa
     const speakerBtn = document.getElementById('speaker-btn');
-
-    // Ẩn/Hiện nút loa dựa trên chế độ
     if (currentMode === 'listen') {
-        speakerBtn.style.display = 'block'; // Hiện loa ở chế độ nghe
-        
-        // Tự động đọc ở chế độ nghe
+        speakerBtn.style.display = 'block';
         setTimeout(() => speakQuestion(), 800);
     } else {
-        speakerBtn.style.display = 'none'; // ẨN loa ở chế độ nhìn
+        speakerBtn.style.display = 'none';
     }
-}
+} 
 
-// 4. Hàm phát âm thanh
-function speakQuestion() {
-    window.speechSynthesis.cancel();
-    const text = wordQueue[0].word;
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'vi-VN';
-    utterance.rate = 0.6;
-    const voices = window.speechSynthesis.getVoices();
-    const viVoice = voices.find(v => v.lang === 'vi-VN' || v.name.includes('Vietnamese'));
-    if (viVoice) utterance.voice = viVoice;
-    window.speechSynthesis.speak(utterance);
-}
-
-// 5. Kiểm tra đáp án
+// 4. Kiểm tra đáp án
 function checkAnswer(selected, correct, btn) {
     document.getElementById('options').style.pointerEvents = 'none';
     const questionEl = document.getElementById('question');
     
     totalAttempts++;
-    // Khi chọn xong thì luôn hiện chữ để người dùng thấy đáp án đúng
     questionEl.classList.remove('hidden-text');
-    questionEl.style.visibility = 'visible';
     
     if (selected === correct) {
         correctAttempts++;
@@ -129,15 +102,32 @@ function checkAnswer(selected, correct, btn) {
     } else {
         btn.style.backgroundColor = "#f44336";
         questionEl.classList.add('text-wrong');
-        const wrongWord = wordQueue.shift(); 
-        wordQueue.push(wrongWord); 
+        
+        if (wordQueue.length > 1) {
+            const wrongWord = wordQueue.shift(); 
+            wordQueue.push(wrongWord); 
+        }
+        
         setTimeout(() => { 
             btn.style.backgroundColor = "#007bff"; 
             document.getElementById('options').style.pointerEvents = 'auto';
             loadQuestion(); 
         }, 3000);
     }
-}
+} 
+
+// 5. Hàm phát âm thanh
+function speakQuestion() {
+    window.speechSynthesis.cancel();
+    const text = wordQueue[0].word;
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'vi-VN';
+    utterance.rate = 0.6;
+    const voices = window.speechSynthesis.getVoices();
+    const viVoice = voices.find(v => v.lang === 'vi-VN' || v.name.includes('Vietnamese'));
+    if (viVoice) utterance.voice = viVoice;
+    window.speechSynthesis.speak(utterance);
+} 
 
 function showResult() {
     const percent = Math.round((correctAttempts / totalAttempts) * 100);
