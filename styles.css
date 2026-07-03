@@ -37,11 +37,21 @@ button:hover { background: #0056b3; }
 /* 3. Khu vực chơi game (Chứa các nút đáp án) */
 #game-container { max-width: 400px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
 
-/* Điều chỉnh nút đáp án nằm trong game-container */
-#options button {
-    display: block;
+#options {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 10px;          
     width: 100%;
-    margin: 20px auto; /* Tạo khoảng cách dọc cho các đáp án */
+    margin-top: 20px;   
+}
+
+#options button {
+    display: block;      
+    width: 80%;          
+    max-width: 300px;    
+    margin: 0;           
+    padding: 15px;      
 }
 
 /* 4. Modal kết quả */
