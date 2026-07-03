@@ -80,9 +80,18 @@ function loadQuestion() {
         optionsEl.appendChild(btn);
     });
     
-    setTimeout(() => {
-        speakQuestion();
-    }, 800);
+// Lấy phần tử nút loa
+    const speakerBtn = document.getElementById('speaker-btn');
+
+    // Ẩn/Hiện nút loa dựa trên chế độ
+    if (currentMode === 'listen') {
+        speakerBtn.style.display = 'block'; // Hiện loa ở chế độ nghe
+        
+        // Tự động đọc ở chế độ nghe
+        setTimeout(() => speakQuestion(), 800);
+    } else {
+        speakerBtn.style.display = 'none'; // ẨN loa ở chế độ nhìn
+    }
 }
 
 // 4. Hàm phát âm thanh
