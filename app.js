@@ -11,7 +11,7 @@ async function loadData() {
     } catch (e) { alert("Lỗi tải file data.json"); }
 }
 loadData();
-
+ 
 // 2. Bắt đầu bài học
 function startLesson(lessonId) {
     wordQueue = allWords.filter(w => w.lesson_id === lessonId);
