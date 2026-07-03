@@ -128,8 +128,8 @@ function checkAnswer(selected, correct, btn) {
     
     totalAttempts++;
     
-    // Hiện chữ ngay khi chọn
     questionEl.classList.remove('hidden-text');
+    questionEl.style.visibility = 'visible';
     
     if (selected === correct) {
         correctAttempts++;
