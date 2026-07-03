@@ -79,19 +79,32 @@ while(options.length < 4 && options.length < wordQueue.length) {
 
 // Hàm phát âm thanh
 function speakQuestion() {
-    const questionText = document.getElementById('question').innerText;
+    const element = document.getElementById('question');
+    if (!element) return;
     
-    // Hủy các âm thanh đang phát (tránh bị chồng tiếng)
+    let text = element.innerText;
+
+    // Kỹ thuật tạo khoảng nghỉ: 
+    // Thay thế khoảng trắng giữa các từ bằng dấu phẩy để tạo ngắt quãng khi đọc
+    // Bạn có thể tùy chỉnh regex để ngắt quãng nhiều hơn nếu muốn
+    const spacedText = text.split(' ').join(', ');
+
     window.speechSynthesis.cancel();
     
-    const utterance = new SpeechSynthesisUtterance(questionText);
-    utterance.lang = 'vi-VN'; // Ngôn ngữ Tiếng Việt
-    utterance.rate = 0.75;     // Tốc độ đọc (1 là bình thường)
-    utterance.pitch = 1;      // Độ cao giọng
-    
-    // Tìm giọng đọc tiếng Việt (thường là Google Tiếng Việt)
+    const utterance = new SpeechSynthesisUtterance(spacedText);
+    utterance.lang = 'vi-VN';
+    utterance.rate = 0.7; // Giảm tốc độ hơn nữa để nghe rõ khoảng nghỉ
+    utterance.pitch = 1.2; // Tăng nhẹ pitch để nghe thanh thoát hơn (giống giọng nữ)
+
     const voices = window.speechSynthesis.getVoices();
-    const viVoice = voices.find(v => v.lang === 'vi-VN' || v.name.includes('Vietnamese'));
+    
+    // Tìm giọng có tên chứa 'female' hoặc ưu tiên các giọng hệ thống
+    // Lưu ý: Tên giọng phụ thuộc vào OS của người dùng
+    const viVoice = voices.find(v => 
+        (v.lang === 'vi-VN' || v.name.includes('Vietnamese')) && 
+        (v.name.includes('Google') || v.name.includes('Female'))
+    );
+    
     if (viVoice) utterance.voice = viVoice;
     
     window.speechSynthesis.speak(utterance);
