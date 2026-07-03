@@ -28,7 +28,7 @@ function startLesson(lessonId) {
     correctAttempts = 0;
 }
 
-
+// HÀM NÀY PHẢI NẰM NGOÀI startLesson
 function setMode(mode) {
     currentMode = mode;
     document.getElementById('mode-menu').style.display = 'none';
@@ -48,26 +48,19 @@ function loadQuestion() {
         showResult();
         return;
     }
-
-    const questionEl = document.getElementById('question');
-    const speakerBtn = document.getElementById('speaker-btn'); // Chỉ khai báo 1 lần duy nhất
     const current = wordQueue[0];
+    const questionEl = document.getElementById('question');
 
-    // Reset trạng thái
     questionEl.classList.remove('text-correct', 'text-wrong');
-
+    questionEl.innerText = current.word;
+    
     // Logic ẩn/hiện dựa trên chế độ
     if (currentMode === 'listen') {
-        questionEl.innerText = "???"; 
-        questionEl.style.visibility = 'hidden'; 
-        speakerBtn.style.display = 'block';     
-        
-        setTimeout(() => speakQuestion(), 800);
+        questionEl.classList.add('hidden-text');
+        questionEl.style.visibility = 'hidden';
     } else {
-        questionEl.innerText = current.word; 
-        questionEl.style.visibility = 'visible'; 
-        questionEl.style.display = 'block';      
-        speakerBtn.style.display = 'none';      
+        questionEl.classList.remove('hidden-text');
+        questionEl.style.visibility = 'visible';
     }
     
     // Tạo nút đáp án
@@ -86,6 +79,19 @@ function loadQuestion() {
         btn.onclick = () => checkAnswer(opt, current.meaning, btn);
         optionsEl.appendChild(btn);
     });
+    
+// Lấy phần tử nút loa
+    const speakerBtn = document.getElementById('speaker-btn');
+
+    // Ẩn/Hiện nút loa dựa trên chế độ
+    if (currentMode === 'listen') {
+        speakerBtn.style.display = 'block'; // Hiện loa ở chế độ nghe
+        
+        // Tự động đọc ở chế độ nghe
+        setTimeout(() => speakQuestion(), 800);
+    } else {
+        speakerBtn.style.display = 'none'; // ẨN loa ở chế độ nhìn
+    }
 }
 
 // 4. Hàm phát âm thanh
