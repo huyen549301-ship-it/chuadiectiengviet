@@ -52,24 +52,27 @@ button:hover { background: #0056b3; }
 /* 5. Cấu hình trạng thái Ẩn/Hiện đáp án */
 #question.hidden-text {
     color: transparent !important;
-    user-select: none; /* Không cho copy */
-    pointer-events: none; /* Không cho click vào chữ */
+    text-shadow: none !important;
+    opacity: 0 !important;      /* Thêm vào để ẩn hoàn toàn */
+    visibility: hidden !important; /* Thêm vào để trình duyệt không vẽ chữ */
+    user-select: none;
+    pointer-events: none;
 }
 
 /* Màu sắc phản hồi */
 .text-correct { 
-    color: #28a745 !important; /* Xanh lá khi đúng */
+    color: #28a745 !important; 
     transition: color 0.3s ease; 
 }
 
 .text-wrong { 
-    color: #dc3545 !important; /* Đỏ khi sai */
+    color: #dc3545 !important; 
     transition: color 0.3s ease;
 }
 
 /* Đảm bảo tiêu đề câu hỏi hiển thị đẹp khi hiện ra */
 #question {
-    transition: color 0.3s ease;
-    min-height: 1.5em; /* Giữ chỗ để không bị nhảy khung hình */
-} 
+    transition: color 0.3s ease, opacity 0.3s ease;
+    min-height: 1.5em; 
+}
 
