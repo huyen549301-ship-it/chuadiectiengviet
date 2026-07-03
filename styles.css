@@ -53,8 +53,6 @@ button:hover { background: #0056b3; }
 #question.hidden-text {
     color: transparent !important;
     text-shadow: none !important;
-    opacity: 0 !important;      /* Thêm vào để ẩn hoàn toàn */
-    visibility: hidden !important; /* Thêm vào để trình duyệt không vẽ chữ */
     user-select: none;
     pointer-events: none;
 }
@@ -62,12 +60,12 @@ button:hover { background: #0056b3; }
 /* Màu sắc phản hồi */
 .text-correct { 
     color: #28a745 !important; 
-    transition: color 0.3s ease; 
+    opacity: 1 !important; 
 }
 
 .text-wrong { 
     color: #dc3545 !important; 
-    transition: color 0.3s ease;
+    opacity: 1 !important; 
 }
 
 /* Đảm bảo tiêu đề câu hỏi hiển thị đẹp khi hiện ra */
