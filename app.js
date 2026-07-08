@@ -30,8 +30,11 @@ function startLesson(lessonId) {
 
 function setMode(mode) {
     currentMode = mode;
+    document.getElementById('menu').style.display = 'none';
     document.getElementById('mode-menu').style.display = 'none';
     document.getElementById('game-container').style.display = 'block';
+    document.getElementById('options').style.display = (mode === 'dictation') ? 'none' : 'flex';
+    document.getElementById('dictation-box').style.display = (mode === 'dictation') ? 'block' : 'none';
     
     // Mồi âm thanh
     const mồi = new SpeechSynthesisUtterance("ok");
@@ -43,19 +46,25 @@ function setMode(mode) {
 
 // 3. Tải câu hỏi
 function loadQuestion() {
-    if (wordQueue.length === 0) {
-        showResult();
-        return;
-    }
+    if (wordQueue.length === 0) {showResult();return;}
     const current = wordQueue[0];
     const questionEl = document.getElementById('question');
+    const inputEl = document.getElementById('answer-input');
 
-    questionEl.innerText = current.word;
-    questionEl.classList.remove('hidden-text', 'text-correct', 'text-wrong');
-
+    questionEl.innerText = current.word; 
+    questionEl.style.color = "";
+    questionEl.classList.add('hidden-text');
+    inputEl.value = '';
+    
+    if (currentMode === 'dictation') {
+        inputEl.style.display = 'block';
+        inputEl.focus();
+        setTimeout(() => speakQuestion(), 500);
+    } else {
+        inputEl.style.display = 'none';}
+    
     if (currentMode === 'listen') {
-        questionEl.classList.add('hidden-text');
-    }
+        questionEl.classList.add('hidden-text');}
 
     let options = [current.meaning];
     while(options.length < 4 && options.length < wordQueue.length) {
@@ -114,7 +123,40 @@ function checkAnswer(selected, correct, btn) {
             loadQuestion(); 
         }, 1500);
     }
-} 
+}
+
+// Thêm vào sau hàm checkAnswer
+function checkDictation() {
+    totalAttempts++;
+    const userInput = document.getElementById('answer-input').value.trim();
+    const correct = wordQueue[0].word;
+    const qEl = document.getElementById('question');
+
+    qEl.classList.remove('hidden-text');
+    if (userInput === correct) {
+        correctAttempts++;
+        qEl.style.color = "#4CAF50";
+        setTimeout(() => { 
+            qEl.style.color = "";
+            wordQueue.shift(); 
+            loadQuestion(); 
+        }, 1000);
+    } else {
+        qEl.style.color = "#f44336";
+        qEl.innerText = "Sai: " +correct;
+        wordQueue.push(wordQueue.shift());
+        setTimeout(() => { 
+            qEl.style.color = "";
+            qEl.classList.remove('text-wrong'); 
+            loadQuestion(); 
+        }, 1500);
+    }
+}
+
+// Hỗ trợ nhấn Enter để kiểm tra
+document.getElementById('answer-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') checkDictation();
+});
 
 // 5. Hàm phát âm thanh
 function speakQuestion() {
@@ -130,7 +172,7 @@ function speakQuestion() {
 } 
 
 function showResult() {
-    const percent = Math.round((correctAttempts / totalAttempts) * 100);
+    const percent = (totalAttempts > 0) ? Math.round((correctAttempts / totalAttempts) * 100) : 0;
     const resultText = document.getElementById('resultText');
     resultText.innerHTML = `Khả năng ghi nhớ: <b>${percent}%</b>`;
     document.getElementById('resultModal').style.display = 'flex';
