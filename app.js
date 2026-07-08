@@ -33,6 +33,7 @@ function setMode(mode) {
     document.getElementById('menu').style.display = 'none';
     document.getElementById('mode-menu').style.display = 'none';
     document.getElementById('game-container').style.display = 'block';
+    const isDictation = (mode === 'dictation');
     document.getElementById('options').style.display = (mode === 'dictation') ? 'none' : 'flex';
     document.getElementById('dictation-box').style.display = (mode === 'dictation') ? 'block' : 'none';
     
@@ -45,51 +46,64 @@ function setMode(mode) {
 }
 
 // 3. Tải câu hỏi
+// 3. Tải câu hỏi (Dùng đoạn này thay thế toàn bộ hàm loadQuestion cũ)
 function loadQuestion() {
-    if (wordQueue.length === 0) {showResult();return;}
+    if (wordQueue.length === 0) { showResult(); return; }
+    
     const current = wordQueue[0];
     const questionEl = document.getElementById('question');
     const inputEl = document.getElementById('answer-input');
+    const speakerBtn = document.getElementById('speaker-btn');
+    const optionsEl = document.getElementById('options');
 
-    questionEl.innerText = current.word; 
+    // Reset giao diện
+    questionEl.innerText = current.word;
     questionEl.style.color = "";
     questionEl.classList.add('hidden-text');
     inputEl.value = '';
-    
+
+    // Logic hiển thị phần tử theo chế độ
     if (currentMode === 'dictation') {
         inputEl.style.display = 'block';
+        optionsEl.style.display = 'none';
+        speakerBtn.style.display = 'block';
         inputEl.focus();
         setTimeout(() => speakQuestion(), 500);
-    } else {
-        inputEl.style.display = 'none';}
-    
-    if (currentMode === 'listen') {
-        questionEl.classList.add('hidden-text');}
-
-    let options = [current.meaning];
-    while(options.length < 4 && options.length < wordQueue.length) {
-        let rand = wordQueue[Math.floor(Math.random() * wordQueue.length)].meaning;
-        if (!options.includes(rand)) options.push(rand);
-    }
-    options.sort(() => Math.random() - 0.5);
-    
-    const optionsEl = document.getElementById('options');
-    optionsEl.innerHTML = '';
-    options.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.innerText = opt;
-        btn.onclick = () => checkAnswer(opt, current.meaning, btn);
-        optionsEl.appendChild(btn);
-    });
-    
-    const speakerBtn = document.getElementById('speaker-btn');
-    if (currentMode === 'listen') {
+    } 
+    else if (currentMode === 'listen') {
+        inputEl.style.display = 'none';
+        optionsEl.style.display = 'flex';
         speakerBtn.style.display = 'block';
+        questionEl.classList.add('hidden-text');
         setTimeout(() => speakQuestion(), 800);
-    } else {
-        speakerBtn.style.display = 'none';
+    } 
+    else { // Chế độ 'look'
+        inputEl.style.display = 'none';
+        optionsEl.style.display = 'flex';
+        speakerBtn.style.display = 'none'; // Ẩn loa
+        questionEl.classList.remove('hidden-text');
     }
-} 
+
+    // Tạo nút trắc nghiệm (nếu không phải chế độ chép chính tả)
+    if (currentMode !== 'dictation') {
+        let options = [current.meaning];
+        while(options.length < 4 && options.length < wordQueue.length) {
+            let rand = wordQueue[Math.floor(Math.random() * wordQueue.length)].meaning;
+            if (!options.includes(rand)) options.push(rand);
+        }
+        options.sort(() => Math.random() - 0.5);
+
+        optionsEl.innerHTML = '';
+        options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.innerText = opt;
+            btn.onclick = () => checkAnswer(opt, current.meaning, btn);
+            optionsEl.appendChild(btn);
+        });
+    } else {
+        optionsEl.innerHTML = '';
+    }
+}
 
 // 4. Kiểm tra đáp án
 function checkAnswer(selected, correct, btn) {
@@ -177,3 +191,7 @@ function showResult() {
     resultText.innerHTML = `Khả năng ghi nhớ: <b>${percent}%</b>`;
     document.getElementById('resultModal').style.display = 'flex';
 }
+
+window.speechSynthesis.onvoiceschanged = () => {
+    console.log("Giọng nói đã sẵn sàng");
+};
