@@ -47,9 +47,8 @@
     {"lesson_id": 1.2, "word": "các anh ấy", "meaning": "他们(哥哥辈，纯男性)"},
     {"lesson_id": 1.2, "word": "các chị ấy", "meaning": "她们(姐姐辈，纯女性)"}, 
     {"lesson_id": 1.2, "word": "các bạn ấy", "meaning": "他们/她们(同龄群体，不分性别)"}, 
-    {"lesson_id": 1.2, "word": "họ", "meaning": "他们(最通用的第三人称复数，中性)"}
+    {"lesson_id": 1.2, "word": "họ", "meaning": "他们(最通用的第三人称复数，中性)"},
 
-    
     {"lesson_id": 2.1, "word": "dạy", "meaning": "教"},
     {"lesson_id": 2.1, "word": "giáo viên", "meaning": "老师"},
     {"lesson_id": 2.1, "word": "Hàn Quốc", "meaning": "韩国"},
