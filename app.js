@@ -46,7 +46,6 @@ function setMode(mode) {
 }
 
 // 3. Tải câu hỏi
-// 3. Tải câu hỏi (Dùng đoạn này thay thế toàn bộ hàm loadQuestion cũ)
 function loadQuestion() {
     if (wordQueue.length === 0) { showResult(); return; }
     
@@ -139,17 +138,29 @@ function checkAnswer(selected, correct, btn) {
     }
 }
 
-// Thêm vào sau hàm checkAnswer
+// Kiểm tra đáp án (Viết)
 function checkDictation() {
     totalAttempts++;
     const userInput = document.getElementById('answer-input').value.trim();
     const correct = wordQueue[0].word;
     const qEl = document.getElementById('question');
 
+const normalize = (str) => {
+        return str.toString().toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
+    };
+
+    const cleanInput = normalize(userInput);
+    const cleanCorrect = normalize(correct);
+
     qEl.classList.remove('hidden-text');
-    if (userInput === correct) {
+
+    if (cleanInput === cleanCorrect) {
         correctAttempts++;
         qEl.style.color = "#4CAF50";
+        // Giữ lại từ gốc để hiển thị chính xác trước khi chuyển câu
+        qEl.innerText = correct; 
+        document.getElementById('answer-input').value = '';
+        
         setTimeout(() => { 
             qEl.style.color = "";
             wordQueue.shift(); 
@@ -157,10 +168,14 @@ function checkDictation() {
         }, 1000);
     } else {
         qEl.style.color = "#f44336";
-        qEl.innerText = "Sai: " +correct;
+        qEl.innerText = "Sai, là: " + correct;
+        
         wordQueue.push(wordQueue.shift());
+        
         setTimeout(() => { 
             qEl.style.color = "";
+            // Không cần remove class text-wrong nếu bạn không dùng CSS cho nó, 
+            // nhưng giữ lại để logic sạch sẽ
             qEl.classList.remove('text-wrong'); 
             loadQuestion(); 
         }, 1500);
