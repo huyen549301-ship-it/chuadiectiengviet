@@ -1,4 +1,6 @@
 let allWords = [];
+let currentData = null
+let currentLessonData = null;
 let wordQueue = [];
 let totalAttempts = 0;
 let correctAttempts = 0;
@@ -9,18 +11,20 @@ async function loadData() {
     try {
         const response = await fetch('data.json');
         allWords = await response.json();
-    } catch (e) { alert("Lỗi tải file data.json"); }
+        console.log("Dữ liệu đã tải xong!"); 
+    } catch (e) { alert("Lỗi tải file data.json. Hãy kiểm tra lại file!"); }
 }
 loadData();
 
 // 2. Bắt đầu bài học
 function startLesson(lessonId) {
-    wordQueue = allWords.filter(w => w.lesson_id === lessonId);
-    if(wordQueue.length === 0) { alert("Bài học này chưa có dữ liệu!"); return; }
+    if (allWords.length === 0) { alert("Đang tải dữ liệu, vui lòng chờ..."); return;}
+    currentLessonData = allWords.find(item => item.lesson_id === lessonId);
+    if (!currentLessonData || !currentLessonData.vocabulary) {alert("Bài học này chưa có danh sách từ vựng!"); return;}
     
+    wordQueue = [...currentLessonData.vocabulary];
     wordQueue.sort(() => Math.random() - 0.5);
-    
-    // Ẩn menu chọn bài, HIỆN menu chọn chế độ
+
     document.getElementById('menu').style.display = 'none';
     document.getElementById('mode-menu').style.display = 'block';
     
@@ -207,6 +211,50 @@ function showResult() {
     document.getElementById('resultModal').style.display = 'flex';
 }
 
+// Tính năng độc lập: Sắp xếp câu
+function startArrangeGame() {
+    if (!currentLessonData || !currentLessonData.arrange_sentences || currentLessonData.arrange_sentences.length === 0) {
+        alert("Bài này chưa có bài tập sắp xếp câu!");
+        return;
+    }
+
+    document.getElementById('menu').style.display = 'none';
+    document.getElementById('arrange-container').style.display = 'block';
+    const list = currentLessonData.arrange_sentences;
+    currentData = list[Math.floor(Math.random() * list.length)];
+    document.getElementById('arrange-question').innerText = currentData.word;
+    
+    const pool = document.getElementById('word-pool');
+    const dropZone = document.getElementById('drop-zone');
+    pool.innerHTML = '';
+    dropZone.innerHTML = '';
+
+    const shuffled = [...currentData.meaning_words].sort(() => Math.random() - 0.5);
+    
+    shuffled.forEach(word => {
+        const btn = document.createElement('div');
+        btn.innerText = word;
+        btn.className = 'tag';
+        btn.onclick = function() {
+            if (this.parentElement.id === 'word-pool') {
+                dropZone.appendChild(this);
+            } else {
+                pool.appendChild(this);
+            }
+        };
+        pool.appendChild(btn);
+    });
+}
 window.speechSynthesis.onvoiceschanged = () => {
     console.log("Giọng nói đã sẵn sàng");
 };
+function backToMenu() {
+    // Ẩn màn hình sắp xếp câu
+    document.getElementById('arrange-container').style.display = 'none';
+    
+    // Hiện lại màn hình menu chính (nơi chọn bài học)
+    document.getElementById('menu').style.display = 'block';
+    
+    // Nếu bạn muốn dừng mọi âm thanh đang phát (nếu có)
+    window.speechSynthesis.cancel();
+}
