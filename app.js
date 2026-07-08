@@ -168,7 +168,7 @@ const normalize = (str) => {
         }, 1000);
     } else {
         qEl.style.color = "#f44336";
-        qEl.innerText = "❌" + correct;
+        qEl.innerText = "❌  " + correct;
         
         wordQueue.push(wordQueue.shift());
         
