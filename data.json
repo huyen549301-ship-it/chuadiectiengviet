@@ -3,9 +3,29 @@
     {"lesson_id": 1.1, "word": "xin lỗi", "meaning": "对不起、不好意思"},
     {"lesson_id": 1.1, "word": "cảm ơn", "meaning": "谢谢"},
     {"lesson_id": 1.1, "word": "tên là...", "meaning": "叫……"},
+    "arrange_sentences": [
+      {
+        "word": "我叫阿兰",
+        "meaning_words": ["Tôi", "tên là", "Lan"]
+      },
     {"lesson_id": 1.1, "word": "người Trung Quốc", "meaning": "中国人"},
+        "arrange_sentences": [
+      {
+        "word": "我是中国人",
+        "meaning_words": ["Tôi", "là", "người", "Trung Quốc"]
+      },
     {"lesson_id": 1.1, "word": "người Việt Nam", "meaning": "越南人"},
+            "arrange_sentences": [
+      {
+        "word": "我是越南人",
+        "meaning_words": ["Tôi", "là", "người", "Việt Nam"]
+      },
     {"lesson_id": 1.1, "word": "người nước nào", "meaning": "哪国人"},
+                "arrange_sentences": [
+      {
+        "word": "你是哪国人",
+        "meaning_words": ["Bạn", "là", "người", "nước nào"]
+      },
     {"lesson_id": 1.1, "word": "người Anh", "meaning": "英国人"},
     {"lesson_id": 1.1, "word": "người Mỹ", "meaning": "美国人"},
     {"lesson_id": 1.1, "word": "người Đài Loan", "meaning": "台湾人"},
