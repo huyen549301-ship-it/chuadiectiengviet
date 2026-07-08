@@ -26,12 +26,12 @@
             <button onclick="startLesson(6.2)">Bài 6.2 时间(2)</button>
             <button onclick="startLesson(6.3)">Bài 6.3 日常活动</button>
             <button onclick="startLesson(7.1)">Bài 7.1 年月日(1)</button>
-            <button onclick="startLesson(7.1)">Bài 7.2 年月日(2)</button>
+            <button onclick="startLesson(7.2)">Bài 7.2 年月日(2)</button>
             <button onclick="startLesson(8.1)">Bài 8.1 好久不见</button>
             <button onclick="startLesson(8.2)">Bài 8.2 家庭关系</button>
             <button onclick="startLesson(9.1)">Bài 9.1 业余活动(1)</button>
             <button onclick="startLesson(9.2)">Bài 9.2 业余活动(2)</button>
-            <button onclick="startLesson(10.)">Bài 10.1 方向</button>
+            <button onclick="startLesson(10.1)">Bài 10.1 方向</button>
             <button onclick="startLesson('交通工具')">Bài 10.2 交通工具</button>
             <button onclick="startLesson('地点')">Bài 10.3 地点</button>
             <button onclick="startLesson(11)">Bài 11 时长</button>
@@ -45,21 +45,28 @@
             <button onclick="startLesson('形容词(2)')">形容词(2)</button>
             <button onclick="startLesson('动作')">动作</button>
             <button onclick="startLesson('动物')">动物</button>
-            
         </div>
 
 <div id="mode-menu" style="display:none; text-align: center; margin: 20px auto; max-width: 400px;">
             <h3>Chọn chế độ học:</h3>
             <button onclick="setMode('listen')">🎧 Luyện nghe</button>
+            <button onclick="setMode('dictation')">✍️ Chép chính tả</button>
             <button onclick="setMode('look')" style="margin-top: 10px;">👁️ Học từ vựng</button>
         </div>
 
 <div id="game-container" style="display:none;">
-    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;">
+    <div id="q-box" style="text-align: center; margin-bottom: 20px;">
         <h2 id="question" class="hidden-text"></h2>
-        <button id="speaker-btn" onclick="speakQuestion()" style="cursor: pointer; font-size: 20px; border: none; background: none;">🔊</button>
+        <button id="speaker-btn" onclick="speakQuestion()" style="cursor: pointer; font-size: 24px; border: none; background: none;">🔊</button>
     </div>
-    <div id="options"></div>
+    
+    <div id="options"></div> 
+    
+    <div id="dictation-box" style="display:none; text-align:center; margin-top:20px;">
+        <input type="text" id="answer-input" placeholder="Nhập chữ tại đây..." style="padding:10px; width:80%; border: 1px solid #ccc; border-radius: 5px;">
+        <br>
+        <button onclick="checkDictation()" style="margin-top:15px; padding: 10px 20px;">Kiểm tra</button>
+    </div>
 </div>
 
     <div id="resultModal" class="modal">
