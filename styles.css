@@ -110,3 +110,52 @@ button:hover { background: #0056b3; }
 #answer-input:focus { border-color: #007bff; outline: none; }
 .text-correct { color: #4CAF50 !important; font-weight: bold; }
 .text-wrong { color: #f44336 !important; font-weight: bold; }
+
+/* 7. CSS cho tính năng Sắp xếp câu */
+#arrange-container {
+    max-width: 400px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+#arrange-container button {
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    background-color: #607D8B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#arrange-container button:hover {
+    background-color: #455A64;
+}
+
+#word-pool, #drop-zone {
+    min-height: 50px;
+    border: 2px dashed #ccc;
+    margin: 10px 0;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.tag {
+    background: #e0e0e0;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+.tag:hover {
+    background: #d0d0d0;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
