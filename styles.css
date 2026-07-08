@@ -98,4 +98,15 @@ button:hover { background: #0056b3; }
     padding: 10px 0;
     width: 100%;
     text-align: center;
-} 
+}
+/* 6. Bổ sung cho tính năng Chép chính tả */
+#answer-input {
+    font-size: 18px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+    padding: 10px; /* Thêm padding để ô nhập trông thoáng hơn */
+}
+#answer-input:focus { border-color: #007bff; outline: none; }
+.text-correct { color: #4CAF50 !important; font-weight: bold; }
+.text-wrong { color: #f44336 !important; font-weight: bold; }
