@@ -2,7 +2,7 @@
     {"lesson_id": 1.1, "word": "chào...", "meaning": "……你好"},
     {"lesson_id": 1.1, "word": "xin lỗi", "meaning": "对不起、不好意思"},
     {"lesson_id": 1.1, "word": "cảm ơn", "meaning": "谢谢"},
-    {"lesson_id": 1.1, "word": "tên là ...", "meaning": "叫……"},
+    {"lesson_id": 1.1, "word": "tên là...", "meaning": "叫……"},
     {"lesson_id": 1.1, "word": "người Trung Quốc", "meaning": "中国人"},
     {"lesson_id": 1.1, "word": "người Việt Nam", "meaning": "越南人"},
     {"lesson_id": 1.1, "word": "người nước nào", "meaning": "哪国人"},
@@ -22,6 +22,7 @@
     {"lesson_id": 1.1, "word": "không sao", "meaning": "没关系、没事"},
     {"lesson_id": 1.1, "word": "không có gì", "meaning": "不客气"},
     {"lesson_id": 1.1, "word": "đừng khách sáo", "meaning": "别客气"},
+    
     {"lesson_id": 1.2, "word": "bác", "meaning": "大伯/伯母(父母的兄姐，不分性别)"},
     {"lesson_id": 1.2, "word": "cô", "meaning": "姑姑/阿姨(比母亲年轻的女性，或女老师)"},
     {"lesson_id": 1.2, "word": "chú", "meaning": "叔叔(比父亲年轻的男性)"},
@@ -46,6 +47,7 @@
     {"lesson_id": 1.2, "word": "các chị ấy", "meaning": "她们(姐姐辈，纯女性)"}, 
     {"lesson_id": 1.2, "word": "các bạn ấy", "meaning": "他们/她们(同龄群体，不分性别)"}, 
     {"lesson_id": 1.2, "word": "họ", "meaning": "他们(最通用的第三人称复数，中性)"},
+    
     {"lesson_id": 2.1, "word": "dạy", "meaning": "教"},
     {"lesson_id": 2.1, "word": "giáo viên", "meaning": "老师"},
     {"lesson_id": 2.1, "word": "Hàn Quốc", "meaning": "韩国"},
