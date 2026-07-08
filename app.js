@@ -191,6 +191,37 @@ document.getElementById('answer-input').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') checkDictation();
 });
 
+function checkArrange() {
+    const dropZone = document.getElementById('drop-zone');
+    const droppedWords = Array.from(dropZone.children).map(child => child.innerText);
+    const userSentence = droppedWords.join('');
+
+    if (userSentence === currentData.word) {
+        dropZone.style.borderColor = "#4CAF50";
+        dropZone.style.backgroundColor = "#e8f5e9";
+        
+        setTimeout(() => {
+            dropZone.style.borderColor = "#ccc";
+            dropZone.style.backgroundColor = "transparent";
+        
+            if (currentLessonData.arrange_sentences.length > 0) {
+                startArrangeGame(); 
+            } else {
+                alert("Bạn đã hoàn thành bài tập này!");
+                backToMenu();
+            }
+        }, 1000);
+    } else {
+        dropZone.style.borderColor = "#f44336";
+        dropZone.style.backgroundColor = "#ffebee";
+        
+        setTimeout(() => {
+            dropZone.style.borderColor = "#ccc";
+            dropZone.style.backgroundColor = "transparent";
+        }, 1000);
+    }
+}
+
 // 5. Hàm phát âm thanh
 function speakQuestion() {
     window.speechSynthesis.cancel();
@@ -245,16 +276,17 @@ function startArrangeGame() {
         pool.appendChild(btn);
     });
 }
+
+
+
 window.speechSynthesis.onvoiceschanged = () => {
     console.log("Giọng nói đã sẵn sàng");
 };
 function backToMenu() {
-    // Ẩn màn hình sắp xếp câu
     document.getElementById('arrange-container').style.display = 'none';
-    
-    // Hiện lại màn hình menu chính (nơi chọn bài học)
+    document.getElementById('game-container').style.display = 'none';
+    document.getElementById('mode-menu').style.display = 'none';
     document.getElementById('menu').style.display = 'block';
-    
-    // Nếu bạn muốn dừng mọi âm thanh đang phát (nếu có)
     window.speechSynthesis.cancel();
+    currentMode = '';
 }
