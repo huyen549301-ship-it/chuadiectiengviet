@@ -52,6 +52,7 @@
             <button onclick="setMode('listen')">🎧 Luyện nghe</button>
             <button onclick="setMode('dictation')">✍️ Chép chính tả</button>
             <button onclick="setMode('look')" style="margin-top: 10px;">👁️ Học từ vựng</button>
+            <button onclick="startArrangeGame()" style="margin-top: 10px; background-color: #ff9800;">🧩 Sắp xếp câu</button>
         </div>
 
 <div id="game-container" style="display:none;">
@@ -67,8 +68,14 @@
         <br>
         <button onclick="checkDictation()" style="margin-top:15px; padding: 10px 20px;">Kiểm tra</button>
     </div>
-</div>
-
+    </div>
+    <div id="arrange-container" style="display: none;">
+            <button onclick="backToMenu()">⬅️ Quay lại Menu</button>
+            <h2 id="arrange-question"></h2>
+            <div id="word-pool"></div>
+            <div id="drop-zone"></div>
+            <button onclick="checkArrange()" style="margin-top: 15px;">Kiểm tra</button>
+        </div>
     <div id="resultModal" class="modal">
         <div class="modal-content">
             <h2>Hoàn thành!</h2>
