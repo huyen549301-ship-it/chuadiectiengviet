@@ -250,6 +250,7 @@ function startArrangeGame() {
     }
 
     document.getElementById('menu').style.display = 'none';
+    document.getElementById('mode-menu').style.display = 'none';
     document.getElementById('arrange-container').style.display = 'block';
     const list = currentLessonData.arrange_sentences;
     currentData = list[Math.floor(Math.random() * list.length)];
