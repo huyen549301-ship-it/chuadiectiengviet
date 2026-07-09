@@ -286,7 +286,7 @@ function backToMenu() {
     document.getElementById('arrange-container').style.display = 'none';
     document.getElementById('game-container').style.display = 'none';
     document.getElementById('mode-menu').style.display = 'none';
-    document.getElementById('menu').style.display = 'block';
+    document.getElementById('menu').style.display = 'flex';
     window.speechSynthesis.cancel();
     currentMode = '';
 }
