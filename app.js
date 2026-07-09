@@ -193,31 +193,30 @@ document.getElementById('answer-input').addEventListener('keypress', (e) => {
 
 function checkArrange() {
     const dropZone = document.getElementById('drop-zone');
+    const checkBtn = event.target;
+    checkBtn.disabled = true;
     const droppedWords = Array.from(dropZone.children).map(child => child.innerText);
-    const userSentence = droppedWords.join('');
+    const userSentence = droppedWords.join(" ");
+    const correctSentence = currentData.meaning_words.join(" ");
 
-    if (userSentence === currentData.word) {
+    if (userSentence === correctSentence) {
         dropZone.style.borderColor = "#4CAF50";
         dropZone.style.backgroundColor = "#e8f5e9";
         
-        setTimeout(() => {
+       setTimeout(() => {
             dropZone.style.borderColor = "#ccc";
             dropZone.style.backgroundColor = "transparent";
-        
-            if (currentLessonData.arrange_sentences.length > 0) {
-                startArrangeGame(); 
-            } else {
-                alert("Bạn đã hoàn thành bài tập này!");
-                backToMenu();
-            }
+           checkBtn.disabled = false;
+            startArrangeGame(); // Chuyển câu mới
         }, 1000);
     } else {
-        dropZone.style.borderColor = "#f44336";
+            dropZone.style.borderColor = "#f44336";
         dropZone.style.backgroundColor = "#ffebee";
         
         setTimeout(() => {
             dropZone.style.borderColor = "#ccc";
             dropZone.style.backgroundColor = "transparent";
+            checkBtn.disabled = false;
         }, 1000);
     }
 }
