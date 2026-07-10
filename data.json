@@ -27,7 +27,21 @@
     {"word": "đừng khách sáo", "meaning": "别客气"}
     ],
     "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
+      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]},
+        {"word": "我是越南人", "meaning_words": ["Tôi", "là", "người", "Việt Nam"]},
+        {"word": "我是中国人", "meaning_words": ["Tôi", "là", "người", "Trung Quốc"]},
+        {"word": "我是英国人", "meaning_words": ["Tôi", "là", "người", "Anh"]},
+        {"word": "我是美国人", "meaning_words": ["Tôi", "là", "người", "Mỹ"]},
+        {"word": "我是台湾人", "meaning_words": ["Tôi", "là", "người", "Đài Loan"]},
+        {"word": "我是日本人", "meaning_words": ["Tôi", "là", "người", "Nhật Bản"]},
+        {"word": "很高兴认识你", "meaning_words": ["rất", "vui", "được", "gặp", "bạn"]},
+        {"word": "大家好", "meaning_words": ["chào", "mọi", "người"]},
+        {"word": "你叫什么名字", "meaning_words": ["Bạn", "tên", "là", "gì"]},
+        {"word": "不客气", "meaning_words": ["không", "có", "gì"]},
+        {"word": "别客气", "meaning_words": ["đừng", "khách", "sáo"]},
+        {"word": "谢谢", "meaning_words": ["cảm", "ơn"]},
+        {"word": "对不起", "meaning_words": ["xin", "lỗi"]},
+        {"word": "没关系", "meaning_words": ["không", "sao"]},
     ]
     },
     
@@ -58,9 +72,6 @@
     {"word": "các chị ấy", "meaning": "她们(姐姐辈，纯女性)"}, 
     {"word": "các bạn ấy", "meaning": "他们/她们(同龄群体，不分性别)"}, 
     {"word": "họ", "meaning": "他们(最通用的第三人称复数，中性)"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
 
