@@ -42,9 +42,6 @@
         {"word": "谢谢", "meaning_words": ["cảm", "ơn"]},
         {"word": "对不起", "meaning_words": ["xin", "lỗi"]},
         {"word": "没关系", "meaning_words": ["không", "sao"]}
-    ],
-    "arrange_sentences": [
-      {"word": "", "meaning_words": ["", "", ""]}
     ]
     },
     {
