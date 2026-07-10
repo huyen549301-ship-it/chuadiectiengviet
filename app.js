@@ -5,6 +5,9 @@ let wordQueue = [];
 let totalAttempts = 0;
 let correctAttempts = 0;
 let currentMode = '';
+let arrangeQueue = []; 
+let totalArrangeAttempts = 0;
+let correctArrangeAttempts = 0;
 
 // 1. Tải dữ liệu
 async function loadData() {
@@ -191,32 +194,44 @@ document.getElementById('answer-input').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') checkDictation();
 });
 
+
 function checkArrange() {
     const dropZone = document.getElementById('drop-zone');
     const checkBtn = event.target;
+    
+    totalArrangeAttempts++;
     checkBtn.disabled = true;
+    
     const droppedWords = Array.from(dropZone.children).map(child => child.innerText);
     const userSentence = droppedWords.join(" ");
     const correctSentence = currentData.meaning_words.join(" ");
 
     if (userSentence === correctSentence) {
+        correctArrangeAttempts++; // Tăng điểm
         dropZone.style.borderColor = "#4CAF50";
         dropZone.style.backgroundColor = "#e8f5e9";
-        
-       setTimeout(() => {
-            dropZone.style.borderColor = "#ccc";
-            dropZone.style.backgroundColor = "transparent";
-           checkBtn.disabled = false;
-            startArrangeGame(); // Chuyển câu mới
-        }, 1000);
-    } else {
-            dropZone.style.borderColor = "#f44336";
-        dropZone.style.backgroundColor = "#ffebee";
         
         setTimeout(() => {
             dropZone.style.borderColor = "#ccc";
             dropZone.style.backgroundColor = "transparent";
             checkBtn.disabled = false;
+            
+            arrangeQueue.shift(); // Loại bỏ câu đã làm đúng khỏi hàng đợi
+            loadArrangeQuestion(); // Tải câu tiếp theo
+        }, 1000);
+    } else {
+        dropZone.style.borderColor = "#f44336";
+        dropZone.style.backgroundColor = "#ffebee";
+        
+        // Sai thì đưa xuống cuối hàng đợi để lặp lại
+        const wrongSentence = arrangeQueue.shift();
+        arrangeQueue.push(wrongSentence);
+        
+        setTimeout(() => {
+            dropZone.style.borderColor = "#ccc";
+            dropZone.style.backgroundColor = "transparent";
+            checkBtn.disabled = false;
+            loadArrangeQuestion(); // Tải lại câu hỏi
         }, 1000);
     }
 }
@@ -235,7 +250,11 @@ function speakQuestion() {
 } 
 
 function showResult() {
-    const percent = (totalAttempts > 0) ? Math.round((correctAttempts / totalAttempts) * 100) : 0;
+    // Nếu bạn đang chơi Arrange, dùng biến của Arrange, nếu không dùng biến thường
+    const total = (currentMode === '') ? totalArrangeAttempts : totalAttempts;
+    const correct = (currentMode === '') ? correctArrangeAttempts : correctAttempts;
+    
+    const percent = (total > 0) ? Math.round((correct / total) * 100) : 0;
     const resultText = document.getElementById('resultText');
     resultText.innerHTML = `Khả năng ghi nhớ: <b>${percent}%</b>`;
     document.getElementById('resultModal').style.display = 'flex';
@@ -248,11 +267,28 @@ function startArrangeGame() {
         return;
     }
 
+    // Reset giao diện
     document.getElementById('menu').style.display = 'none';
     document.getElementById('mode-menu').style.display = 'none';
     document.getElementById('arrange-container').style.display = 'block';
-    const list = currentLessonData.arrange_sentences;
-    currentData = list[Math.floor(Math.random() * list.length)];
+    
+    // Khởi tạo hàng đợi bài tập
+    arrangeQueue = [...currentLessonData.arrange_sentences];
+    totalArrangeAttempts = 0;
+    correctArrangeAttempts = 0;
+    
+    loadArrangeQuestion();
+}
+
+// Hàm load câu hỏi mới dựa trên hàng đợi
+function loadArrangeQuestion() {
+    if (arrangeQueue.length === 0) {
+        // Gọi hàm showResult có sẵn của bạn để hiện bảng phần trăm
+        showResult(); 
+        return;
+    }
+
+    currentData = arrangeQueue[0]; // Lấy câu đầu tiên trong hàng đợi
     document.getElementById('arrange-question').innerText = currentData.word;
     
     const pool = document.getElementById('word-pool');
@@ -276,6 +312,8 @@ function startArrangeGame() {
         pool.appendChild(btn);
     });
 }
+
+
 window.speechSynthesis.onvoiceschanged = () => {
     console.log("Giọng nói đã sẵn sàng");
 };
