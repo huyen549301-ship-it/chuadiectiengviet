@@ -276,14 +276,10 @@ function startArrangeGame() {
         pool.appendChild(btn);
     });
 }
-
-
-
 window.speechSynthesis.onvoiceschanged = () => {
     console.log("Giọng nói đã sẵn sàng");
 };
 function backToMenu() {
-    // 1. Ẩn các container game
     document.getElementById('arrange-container').style.display = 'none';
     document.getElementById('game-container').style.display = 'none';
     document.getElementById('mode-menu').style.display = 'none';
@@ -296,12 +292,13 @@ function backToMenu() {
 function renderMenu() {
     const menuContainer = document.getElementById('menu');
     menuContainer.innerHTML = ''; 
-    const sortedLessons = [...allLessons].sort((a, b) => {
-        return a.order - b.order; 
+    const sortedLessons = [...allWords].sort((a, b) => {
+        return String(a.lesson_id).localeCompare(String(b.lesson_id), undefined, {numeric: true});
     });
     sortedLessons.forEach(lesson => {
         const btn = document.createElement('button');
         btn.innerText = `Bài ${lesson.lesson_id}`;
+        btn.onclick = () => startLesson(lesson.lesson_id);
         menuContainer.appendChild(btn);
     });
 }
