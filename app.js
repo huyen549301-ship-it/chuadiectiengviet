@@ -291,14 +291,28 @@ function backToMenu() {
 }
 function renderMenu() {
     const menuContainer = document.getElementById('menu');
+    console.log("Đang bắt đầu vẽ menu..."); // Dòng 1
+    
+    // Kiểm tra xem allWords có dữ liệu không
+    if (!allWords || allWords.length === 0) {
+        console.error("Lỗi: allWords trống rỗng hoặc chưa tải xong!");
+        return; 
+    }
+    
     menuContainer.innerHTML = ''; 
+    console.log("Đã xóa nội dung cũ."); // Dòng 2
+
     const sortedLessons = [...allWords].sort((a, b) => {
         return String(a.lesson_id).localeCompare(String(b.lesson_id), undefined, {numeric: true});
     });
+
     sortedLessons.forEach(lesson => {
+        console.log("Đang vẽ nút cho bài: " + lesson.lesson_id); // Dòng 3
         const btn = document.createElement('button');
         btn.innerText = `Bài ${lesson.lesson_id}`;
         btn.onclick = () => startLesson(lesson.lesson_id);
         menuContainer.appendChild(btn);
     });
+    
+    console.log("Vẽ menu hoàn tất!");
 }
