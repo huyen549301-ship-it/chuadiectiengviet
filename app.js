@@ -283,11 +283,25 @@ window.speechSynthesis.onvoiceschanged = () => {
     console.log("Giọng nói đã sẵn sàng");
 };
 function backToMenu() {
+    // 1. Ẩn các container game
     document.getElementById('arrange-container').style.display = 'none';
     document.getElementById('game-container').style.display = 'none';
     document.getElementById('mode-menu').style.display = 'none';
-    const menu = document.getElementById('menu');
-    menu.style.display = 'flex';
     window.speechSynthesis.cancel();
     currentMode = '';
+    const menu = document.getElementById('menu');
+    menu.style.display = 'flex';
+    renderMenu(); 
+}
+function renderMenu() {
+    const menuContainer = document.getElementById('menu');
+    menuContainer.innerHTML = ''; 
+    const sortedLessons = [...allLessons].sort((a, b) => {
+        return a.order - b.order; 
+    });
+    sortedLessons.forEach(lesson => {
+        const btn = document.createElement('button');
+        btn.innerText = `Bài ${lesson.lesson_id}`;
+        menuContainer.appendChild(btn);
+    });
 }
