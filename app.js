@@ -266,38 +266,33 @@ function startArrangeGame() {
         alert("Bài này chưa có bài tập sắp xếp câu!");
         return;
     }
-
-    // Reset giao diện
     document.getElementById('menu').style.display = 'none';
     document.getElementById('mode-menu').style.display = 'none';
     document.getElementById('arrange-container').style.display = 'block';
+    let tempQueue = [...currentLessonData.arrange_sentences];
+    for (let i = tempQueue.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [tempQueue[i], tempQueue[j]] = [tempQueue[j], tempQueue[i]];
+    }
+    arrangeQueue = tempQueue; 
     
-    // Khởi tạo hàng đợi bài tập
-    arrangeQueue = [...currentLessonData.arrange_sentences];
     totalArrangeAttempts = 0;
     correctArrangeAttempts = 0;
     
     loadArrangeQuestion();
 }
-
-// Hàm load câu hỏi mới dựa trên hàng đợi
 function loadArrangeQuestion() {
     if (arrangeQueue.length === 0) {
-        // Gọi hàm showResult có sẵn của bạn để hiện bảng phần trăm
         showResult(); 
         return;
     }
-
-    currentData = arrangeQueue[0]; // Lấy câu đầu tiên trong hàng đợi
+    currentData = arrangeQueue[0];
     document.getElementById('arrange-question').innerText = currentData.word;
-    
     const pool = document.getElementById('word-pool');
     const dropZone = document.getElementById('drop-zone');
     pool.innerHTML = '';
     dropZone.innerHTML = '';
-
     const shuffled = [...currentData.meaning_words].sort(() => Math.random() - 0.5);
-    
     shuffled.forEach(word => {
         const btn = document.createElement('div');
         btn.innerText = word;
@@ -324,6 +319,6 @@ function backToMenu() {
     window.speechSynthesis.cancel();
     currentMode = '';
     const menu = document.getElementById('menu');
-    menu.style.display = 'grid'; // Dùng grid để khớp với CSS #app #menu của bạn
+    menu.style.display = 'grid'; 
 }
 
