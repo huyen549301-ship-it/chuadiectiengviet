@@ -884,7 +884,7 @@
     "arrange_sentences": [
       {"word": "今天天气怎么样", "meaning_words": ["hôm nay", "thời tiết", "như thế nào"]},
       {"word": "今天天气怎么样", "meaning_words": ["hôm nay", "trời", "thế nào"]},
-      {"word": "今天下雨吗", "meaning_words": ["hôm nay", "có", "mưa", "không"]},
+      {"word": "今天会下雨吗", "meaning_words": ["hôm nay", "có", "mưa", "không"]},
       {"word": "今天天气晴朗吗", "meaning_words": ["hôm nay", "có", "nắng", "không"]},
       {"word": "今天有没有台风", "meaning_words": ["hôm nay", "có", "bão", "không"]},
       {"word": "现在是什么季节", "meaning_words": ["bây giờ", "là", "mùa", "gì"]},
