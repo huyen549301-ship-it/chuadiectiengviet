@@ -250,10 +250,14 @@ function speakQuestion() {
 } 
 
 function showResult() {
-    // Nếu bạn đang chơi Arrange, dùng biến của Arrange, nếu không dùng biến thường
-    const total = (currentMode === '') ? totalArrangeAttempts : totalAttempts;
-    const correct = (currentMode === '') ? correctArrangeAttempts : correctAttempts;
-    
+    let total, correct;
+    if (currentMode === 'arrange') {
+        total = totalArrangeAttempts;
+        correct = correctArrangeAttempts;
+    } else {
+        total = totalAttempts;
+        correct = correctAttempts;
+    }
     const percent = (total > 0) ? Math.round((correct / total) * 100) : 0;
     const resultText = document.getElementById('resultText');
     resultText.innerHTML = `Khả năng ghi nhớ: <b>${percent}%</b>`;
@@ -266,6 +270,7 @@ function startArrangeGame() {
         alert("Bài này chưa có bài tập sắp xếp câu!");
         return;
     }
+    currentMode = 'arrange';
     document.getElementById('menu').style.display = 'none';
     document.getElementById('mode-menu').style.display = 'none';
     document.getElementById('arrange-container').style.display = 'block';
