@@ -908,13 +908,13 @@
       {"word": "cả A và B đều...", "meaning": "A和B都……"},
       {"word": "cả A lẫn B đều...", "meaning": "A和B都……"},
       {"word": "A...bằng B", "meaning": "A和B一样……"},
+      {"word": "A...như B", "meaning": "A跟B一样……"},
       {"word": "A...hơn B", "meaning": "A比B更……"},
       {"word": "...nhất", "meaning": "最……"},
-      {"word": "A giống B", "meaning": "A跟B一样"},
-      {"word": "A và B giống nhau", "meaning": "A跟B一样"},
+      {"word": "A giống B", "meaning": "A跟B一样"}，
+      {"word": "A với B giống nhau", "meaning": "A跟B一样"},
       {"word": "A khác B", "meaning": "A和B不一样"},
-      {"word": "A và B khác nhau", "meaning": "A和B不一样"},
-      {"word": "A và B không giống nhau", "meaning": "A和B不一样"}
+      {"word": "A với B khác nhau", "meaning": "A和B不一样"}
     ],
     "arrange_sentences": [
       {"word": "我和他都喜欢吃河粉", "meaning_words": ["cả", "tôi", "lẫn", "anh ấy", "đều", "thích", "ăn phở"]},
@@ -923,6 +923,7 @@
       {"word": "我跟他一样高", "meaning_words": ["tôi", "cao", "bằng", "anh ấy"]},
       {"word": "今天天气晴朗", "meaning_words": ["hôm nay", "trời", "nắng"]},
       {"word": "我跟你一样忙", "meaning_words": ["tôi", "bận", "như", "bạn"]},
+      {"word": "我跟你一样累", "meaning_words": ["tôi", "mệt", "như", "bạn"]},
       {"word": "冬天比夏天冷", "meaning_words": ["mùa đông", "lạnh", "hơn", "mùa hè"]},
       {"word": "我比你忙", "meaning_words": ["tôi", "bận", "hơn", "bạn"]},
       {"word": "我比你高", "meaning_words": ["tôi", "cao", "hơn", "bạn"]},
@@ -930,10 +931,14 @@
       {"word": "我最高", "meaning_words": ["tôi", "cao", "nhất"]},
       {"word": "我最胖", "meaning_words": ["tôi", "béo", "nhất"]},
       {"word": "我跟你一样", "meaning_words": ["tôi", "giống", "bạn"]},
-      {"word": "我跟同事一样", "meaning_words": ["tôi", "và", "bạn", "giống nhau"]},
-      {"word": "我和你不一样", "meaning_words": ["tôi", "và", "bạn", "không", "giống nhau"]},
+      {"word": "我跟你一样", "meaning_words": ["tôi", "với", "bạn", "giống nhau"]},
+      {"word": "我和你不一样", "meaning_words": ["tôi", "với", "bạn", "không", "giống nhau"]},
       {"word": "我和你不一样", "meaning_words": ["tôi", "khác", "bạn"]},
-      {"word": "这两个不一样", "meaning_words": ["hai", "cái", "này", "không", "giống nhau"]}
+      {"word": "我和你不一样", "meaning_words": ["tôi", "với", "bạn", "khác nhau"]},
+      {"word": "这两个不一样", "meaning_words": ["hai", "cái", "này", "không", "giống nhau"]},
+      {"word": "这两个不一样", "meaning_words": ["hai", "cái", "này", "khác nhau"]},
+      {"word": "这两个一样", "meaning_words": ["hai", "cái", "này", "như nhau"]},
+      {"word": "这两个不一样", "meaning_words": ["hai", "cái", "này", "giống nhau"]}
     ]
   }
 ]
