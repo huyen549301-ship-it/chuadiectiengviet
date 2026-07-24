@@ -907,13 +907,13 @@
     "vocabulary": [
       {"word": "cả A và B đều...", "meaning": "A和B都……"},
       {"word": "cả A lẫn B đều...", "meaning": "A和B都……"},
-      {"word": "A...bằng B", "meaning": "A跟B一样……"},
-      {"word": "A...như B", "meaning": "A跟B一样……"},
-      {"word": "A...hơn B", "meaning": "A比B更……"},
-      {"word": "...nhất", "meaning": "最……"},
-      {"word": "A giống B", "meaning": "A和B一样 / A像B"},
+      {"word": "bằng", "meaning": "一样"},
+      {"word": "như", "meaning": "一样"},
+      {"word": "hơn", "meaning": "比、更"},
+      {"word": "nhất", "meaning": "最"},
+      {"word": "giống", "meaning": "一样、像"},
       {"word": "giống nhau", "meaning": "一样"},
-      {"word": "A khác B", "meaning": "A和B不一样"},
+      {"word": "khác", "meaning": "不一样"},
       {"word": "khác nhau", "meaning": "不一样"}
     ],
     "arrange_sentences": [
