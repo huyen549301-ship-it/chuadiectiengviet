@@ -97,7 +97,25 @@
     {"word": "tiếng Hàn", "meaning": "韩语"}
     ],
     "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
+      {"word": "我是老师", "meaning_words": ["tôi", "là", "giáo viên"]},
+        {"word": "我是医生", "meaning_words": ["tôi", "là", "bác sĩ"]},
+        {"word": "我在医院工作", "meaning_words": ["tôi", "làm", "ở", "bệnh viện"]},
+        {"word": "你做什么工作", "meaning_words": ["bạn", "làm", "nghề gì"]},
+        {"word": "你是韩国人吗", "meaning_words": ["bạn", "là", "người", "Hàn Quốc", "phải không"]},
+        {"word": "我在培训中心教书", "meaning_words": ["tôi", "dạy", "ở", "trung tâm"]},
+        {"word": "我不是老师", "meaning_words": ["tôi", "không phả", "giáo viên"]},
+        {"word": "我不是医生", "meaning_words": ["tôi", "không phải", "bác sĩ"]},
+        {"word": "我说越南语", "meaning_words": ["tôi", "nói", "tiếng Việt"]},
+        {"word": "说中文吧", "meaning_words": ["nói", "tiếng Trung", "đi"]},
+        {"word": "说越南语吧", "meaning_words": ["nói", "tiếng Việt", "đi"]},
+        {"word": "教我越南语吧", "meaning_words": ["dạy", "tôi", "tiếng Việt", "đi"]},
+        {"word": "我在越南工作", "meaning_words": ["tôi", "làm việc", "ở", "Việt Nam"]},
+        {"word": "我在中国公司工作", "meaning_words": ["tôi", "làm việc", "ở", "công ty", "Trung Quốc"]},
+        {"word": "你是美国人吗", "meaning_words": ["bạn", "có phải", "là", "người Mỹ", "không"]},
+        {"word": "你是英国人吗", "meaning_words": ["bạn", "là ", "người Anh", "phải không"]},
+        {"word": "你在哪家公司工作", "meaning_words": ["bạn", "làm việc", "ở đâu"]},
+        {"word": "我在越南工作，你呢", "meaning_words": ["tôi", "làm việc", "ở", "Việt Nam", "còn bạn?"]},
+        {"word": "是的，我是越南人", "meaning_words": ["vâng", "tôi", "là", "người", "Việt Nam"]}
     ]
     },
         
@@ -118,10 +136,19 @@
     {"word": "phiên dịch", "meaning": "翻译"}
     ],
     "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
+      {"word": "我是护士", "meaning_words": ["Tôi", "tên là", "Lan"]},
+        {"word": "我是厨师", "meaning_words": ["", "", ""]},
+        {"word": "我是大学生", "meaning_words": ["", "", ""]},
+        {"word": "我是农民", "meaning_words": ["", "", ""]},
+        {"word": "我是经理", "meaning_words": ["", "", ""]},
+        {"word": "我是工人", "meaning_words": ["", "", ""]},
+        {"word": "我是画家", "meaning_words": ["", "", ""]},
+        {"word": "我是学生", "meaning_words": ["", "", ""]},
+        {"word": "我是工程师", "meaning_words": ["", "", ""]},
+        {"word": "我是员工", "meaning_words": ["", "", ""]},
+        {"word": "我是翻译员", "meaning_words": ["", "", ""]}
     ]
     },
-
     {
     "lesson_id": 3,
     "vocabulary": [
@@ -155,10 +182,30 @@
     {"word": "có khỏe không?", "meaning": "身体好吗？"}
     ],
     "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
+      {"word": "你身体好吗", "meaning_words": ["bạn", "có", "khỏe", "không"]},
+        {"word": "好久不见", "meaning_words": ["lâu", "lắm", "không gặp"]},
+        {"word": "我身体还好", "meaning_words": ["tôi", "bình thường"]},
+        {"word": "你去哪儿呀", "meaning_words": ["bạn", "đi đâu", "đấy"]},
+        {"word": "我去银行", "meaning_words": ["tôi", "đi", "ngân hàng"]},
+        {"word": "这是我儿子", "meaning_words": ["đây là", "con trai", "tôi"]},
+        {"word": "我在吃饭", "meaning_words": ["tôi", "đang", "ăn cơm"]},
+        {"word": "我在银行工作", "meaning_words": ["tôi", "làm việc", "ở", "ngân hàng"]},
+        {"word": "我在大学教书", "meaning_words": ["tôi", "dạy", "ở", "trường đại học"]},
+        {"word": "你正在哪里工作", "meaning_words": ["bạn", "đang", "làm việc", "ở đâu"]},
+        {"word": "不太好吃", "meaning_words": ["không", "ngon", "lắm"]},
+        {"word": "你在干什么呢", "meaning_words": ["bạn", "đang", "làm gì", "vậy"]},
+        {"word": "你多大了", "meaning_words": ["bạn", "bao nhiêu", "tuổi"]},
+        {"word": "我30岁", "meaning_words": ["tôi", "30", "tuổi"]},
+        {"word": "你有摩托车吗", "meaning_words": ["bạn", "có", "xe máy", "không"]},
+        {"word": "你吃河粉吗", "meaning_words": ["bạn", "có", "ăn", "phở", "không"]},
+        {"word": "我已经回家了", "meaning_words": ["tôi", "đã", "về nhà", "rồi"]},
+        {"word": "明天我回来的", "meaning_words": ["ngày mai", "tôi", "sẽ", "đến"]},
+        {"word": "我在学越南语", "meaning_words": ["tôi", "đang", "học", "tiếng Việt"]},
+        {"word": "我和他都是中国人", "meaning_words": ["tôi", "và", "anh ấy", "đều", "là", "người Trung Quốc"]},
+        {"word": "我很好，你呢", "meaning_words": ["tôi", "rất", "khỏe", "còn bạn"]},
+        {"word": "这是你儿子吗", "meaning_words": ["đây là", "con trai", "bạn", "à?"]}
     ]
     },
-
     {
     "lesson_id": 4.1,
     "vocabulary": [
@@ -188,10 +235,35 @@
     {"word": "phòng", "meaning": "房间"}
     ],
     "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
+      {"word": "明天我忙了", "meaning_words": ["mai", "tôi", "bận", "rồi"]},
+        {"word": "我想请你吃饭", "meaning_words": ["tôi", "muốn", "mời", "bạn", "ăn cơm"]},
+        {"word": "来我家玩吧", "meaning_words": ["đến", "nhà tôi", "chơi", "đi"]},
+        {"word": "她很漂亮", "meaning_words": ["cô ấy", "rất", "đẹp"]},
+        {"word": "我很帅", "meaning_words": ["tôi", "rất", "đẹp trai"]},
+        {"word": "我房子很大", "meaning_words": ["nhà tôi", "rất", "rộng"]},
+        {"word": "最近你忙吗", "meaning_words": ["dạo này", "bạn", "có", "bận", "không"]},
+        {"word": "我要买一幅画", "meaning_words": ["tôi", "muốn", "mua", "1 bức tranh"]},
+        {"word": "我来介绍一下", "meaning_words": ["tôi", "xin", "giới thiệu", "một chút"]},
+        {"word": "明天见", "meaning_words": ["ngày mai", "gặp", "lại"]},
+        {"word": "明天要上班吗", "meaning_words": ["ngày mai", "có", "đi làm", "không"]},
+        {"word": "最近我很忙", "meaning_words": ["dạo này", "tôi", "rất", "bận"]},
+        {"word": "你要吃什么", "meaning_words": ["bạn", "muốn", "ăn gì"]},
+        {"word": "这是我的新同事", "meaning_words": ["đây là", "đồng nghiệp", "mới", "của tôi"]},
+        {"word": "那是我的新房子", "meaning_words": ["đó là", "nhà mới", "của", "tôi"]},
+        {"word": "你家有几口人", "meaning_words": ["nhà bạn", "có", "mấy", "người"]},
+        {"word": "我家有3口人", "meaning_words": ["nhà", "tôi", "có", "3 người"]},
+        {"word": "那个人是谁", "meaning_words": ["người đó", "là", "ai"]},
+        {"word": "那只小猫很胖", "meaning_words": ["con mèo", "đó", "rất", "béo"]},
+        {"word": "那个人很高", "meaning_words": ["người đó", "rất", "cao"]},
+        {"word": "那是我的手机", "meaning_words": ["kia", "là", "điện thoại", "của", "tôi"]},
+        {"word": "那是谁的电脑", "meaning_words": ["kia", "là", "máy tính", "của", "ai"]},
+        {"word": "那是我的同事", "meaning_words": ["kia", "là", "đồng nghiệp", "của", "tôi"]},
+        {"word": "这是客厅", "meaning_words": ["đây", "là", "phòng khách"]},
+        {"word": "那是卧室", "meaning_words": ["kia", "là", "phòng ngủ"]},
+        {"word": "我是泰国人", "meaning_words": ["tôi", "là", "người", "Thái Lan"]},
+        {"word": "有什么事吗", "meaning_words": ["có", "chuyện gì", "à"]}
     ]
     },
-    
     {
     "lesson_id": 4.2,
     "vocabulary": [
@@ -202,12 +274,8 @@
     {"word": "tờ", "meaning": "张（用于纸张）"},
     {"word": "bức", "meaning": "幅（用于画册、墙）"},
     {"word": "củ", "meaning": "个（用于根茎类蔬菜）"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
-    
     {
     "lesson_id": 4.3,
     "vocabulary": [
