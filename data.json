@@ -294,9 +294,6 @@
     {"word": "đây là...", "meaning": "这是……"},
     {"word": "kia là...", "meaning": "那是……"},
     {"word": "đó là...", "meaning": "那是……"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
     
@@ -319,9 +316,6 @@
     {"word": "xa", "meaning": "远"},
     {"word": "gầy", "meaning": "瘦"},
     {"word": "béo", "meaning": "胖"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
     
@@ -365,9 +359,6 @@
     {"word": "cởi", "meaning": "脱"},
     {"word": "áo", "meaning": "衣服"},
     {"word": "quàng khăn", "meaning": "戴围巾"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
     
@@ -386,9 +377,6 @@
     {"word": "cam", "meaning": "橙色"},
     {"word": "xám", "meaning": "灰色"},
     {"word": "đen", "meaning": "黑色"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
     
@@ -449,9 +437,6 @@
     {"word": "thích", "meaning": "喜欢"},
     {"word": "yêu", "meaning": "爱"},
     {"word": "biết", "meaning": "知道、会"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
     
@@ -479,9 +464,6 @@
     {"word": "học tiếng Việt", "meaning": "学越南语"},
     {"word": "đi hẹn hò", "meaning": "约会"},
     {"word": "đi mua đồ", "meaning": "去买东西"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
     
@@ -542,9 +524,6 @@
     {"word": "thứ 2 tuần này", "meaning": "这周一"},
     {"word": "thứ 2 tuần sau", "meaning": "下周一"},
     {"word": "thứ 2 tuần trước", "meaning": "上周一"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
     
@@ -592,9 +571,6 @@
     {"word": "con gái", "meaning": "女儿"},
     {"word": "cháu trai", "meaning": "孙子、外孙子"},
     {"word": "cháu gái", "meaning": "孙女、外孙女"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
     
@@ -659,9 +635,6 @@
     {"word": "cách", "meaning": "离"},
     {"word": "từ ... đến ...", "meaning": "从……到……"},
     {"word": "mất bao lâu", "meaning": "要多远"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
     
@@ -681,9 +654,6 @@
     {"word": "sân bay", "meaning": "机场"},
     {"word": "rạp chiếu phim", "meaning": "电影院"},
     {"word": "công ty", "meaning": "公司"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
     
@@ -700,9 +670,6 @@
     {"word": "xe đạp", "meaning": "自行车、脚踏车"},
     {"word": "xích lô", "meaning": "越南载客三轮车"},
     {"word": "đi bộ", "meaning": "走路、散步"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
     
@@ -777,9 +744,6 @@
     {"word": "bút", "meaning": "笔"},
     {"word": "máy tính", "meaning": "电脑"},
     {"word": "điện thoại", "meaning": "手机"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
     
@@ -800,9 +764,6 @@
     {"word": "đi dạo", "meaning": "散步"},
     {"word": "nghe nhạc", "meaning": "听音乐"},
     {"word": "nói chuyện", "meaning": "聊天、说话"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
     
@@ -819,9 +780,6 @@
     {"word": "sạch", "meaning": "干净"},
     {"word": "nặng", "meaning": "重"},
     {"word": "nhẹ", "meaning": "轻"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
     
@@ -835,9 +793,6 @@
     {"word": "mét", "meaning": "米"},
     {"word": "héc ta", "meaning": "公顷"},
     {"word": "mét khối", "meaning": "立方米"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
     
@@ -854,9 +809,6 @@
     {"word": "thịt", "meaning": "肉"},
     {"word": "con dê", "meaning": "山羊"},
     {"word": "con trâu", "meaning": "水牛"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
     },
     
@@ -920,9 +872,6 @@
       {"word": "nước mắm", "meaning": "鱼露"},
       {"word": "thơm", "meaning": "香"},
       {"word": "thối", "meaning": "臭"}
-    ],
-    "arrange_sentences": [
-      {"word": "我叫阿兰", "meaning_words": ["Tôi", "tên là", "Lan"]}
     ]
   },
   {
