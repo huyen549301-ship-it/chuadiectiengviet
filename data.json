@@ -575,7 +575,7 @@
     },
     
     {
-    "lesson_id": 10,
+    "lesson_id": 10.1,
     "vocabulary": [
     {"word": "đi thẳng", "meaning": "直走"},
     {"word": "đường", "meaning": "路"},
@@ -666,7 +666,7 @@
     },
     
     {
-    "lesson_id": 12,
+    "lesson_id": 12.1,
     "vocabulary": [
     {"word": "trên", "meaning": "上面"},
     {"word": "trong", "meaning": "里面"},
