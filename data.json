@@ -903,7 +903,7 @@
     ]
   },
   {
-    "lesson_id": "14.2",
+    "lesson_id": 14.2,
     "vocabulary": [
       {"word": "cả A và B đều…", "meaning": "A和B都…"},
       {"word": "cả A lẫn B đều…", "meaning": "A和B都…"},
@@ -941,7 +941,7 @@
     ]
   },
   {
-    "lesson_id": "15",
+    "lesson_id": 15,
     "vocabulary": [
       {"word": "đặt", "meaning": "订"},
       {"word": "tiện nghi", "meaning": "设施"},
