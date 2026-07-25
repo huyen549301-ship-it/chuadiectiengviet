@@ -962,7 +962,7 @@
         {"word": "mặc dù", "meaning": "虽然"},
         {"word": "dù", "meaning": "虽然"},
         {"word": "tuy", "meaning": "虽然"},
-        {"word": "nhưng", "meaning": "但"},
+        {"word": "nhưng", "meaning": "但"}
         ],
     "arrange_sentences": [
       {"word": "给我个单人间", "meaning_words": ["cho", "tôi", "1", "phòng", "đơn"]},
