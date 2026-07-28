@@ -1045,7 +1045,7 @@
         {"word": "早点回来", "meaning_words": ["về sớm", "nhé"]},
         {"word": "忌酸忌辣", "meaning_words": ["kiêng", "đồ", "chua, cay"]},
         {"word": "我很饿", "meaning_words": ["tôi", "rất", "đói"]},
-        {"word": "我胃疼", "meaning_words": ["tôi", "đau", "dạ dạy"]},
+        {"word": "我胃疼", "meaning_words": ["tôi", "đau", "dạ dày"]},
         {"word": "下周来复查", "meaning_words": ["tuần sau", "đến", "tái khám"]},
         {"word": "要注意身体", "meaning_words": ["phải", "giữ gìn sức khỏe"]},
         {"word": "小心点儿", "meaning_words": ["cẩn thận", "một chút"]},
@@ -1060,7 +1060,7 @@
     "lesson_id": 16.2,
     "vocabulary": [
       {"word": "lông mày", "meaning": "眉毛"},
-        {"word": "mắt", "meaning": "眼睛"}
+        {"word": "mắt", "meaning": "眼睛"},
         {"word": "mũi", "meaning": "鼻子"},
         {"word": "miệng", "meaning": "嘴、口"},
         {"word": "cằm", "meaning": "下巴"},
