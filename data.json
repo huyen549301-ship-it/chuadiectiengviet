@@ -1008,6 +1008,90 @@
       {"word": "有空调吗", "meaning_words": ["có", "điều hòa", "không"]},
       {"word": "306号房间", "meaning_words": ["phòng", "306"]}
     ]
-  }
+    },
+  {
+    "lesson_id": 16.1,
+    "vocabulary": [
+      {"word": "trông có vẻ", "meaning": "看起来、看上去"},
+      {"word": "thấy", "meaning": "觉得"},
+        {"word": "nghỉ ngơi", "meaning": "休息"},
+        {"word": "hình như", "meaning": "好像"},
+        {"word": "thuốc", "meaning": "药"},
+        {"word": "kiêng", "meaning": "忌口"},
+        {"word": "khó chịu", "meaning": "难受"},
+        {"word": "bị", "meaning": "被（贬义词）"},
+        {"word": "được", "meaning": "被（褒义词）"},
+        {"word": "đói", "meaning": "饿"},
+        {"word": "đau dạ dày", "meaning": "胃疼"},
+        {"word": "khám lại", "meaning": "复查"},
+        {"word": "giữ gìn sức khỏe", "meaning": "保重、注意身体"},
+        {"word": "cẩn thận", "meaning": "小心"},
+        {"word": "đơn", "meaning": "单"},
+        {"word": "đơn thuốc", "meaning": "药单"},
+        {"word": "thức khuya", "meaning": "熬夜"},
+        {"word": "theo", "meaning": "根据、按照"},
+        {"word": "về sớm", "meaning": "早归"},
+        {"word": "về muộn", "meaning": "晚归"},
+        {"word": "viên", "meaning": "颗"},
+        {"word": "đồ chua", "meaning": "酸的(东西)"}
+    ],
+    "arrange_sentences": [
+      {"word": "她看起来有点累", "meaning_words": ["cô ấy", "trông có vẻ", "hơi", "mệt"]},
+      {"word": "你觉得身体怎么样", "meaning_words": ["bạn", "thấy", "trong người", "thế nào"]},
+        {"word": "你要多休息", "meaning_words": ["bạn", "phải", "nghỉ ngơi", "nhiều"]},
+        {"word": "她好像生病了", "meaning_words": ["hình như", "cô ấy", "bị bệnh", "rồi"]},
+        {"word": "要吃药吗", "meaning_words": ["có", "cần", "uống thuốc", "không"]},
+        {"word": "要不要忌口", "meaning_words": ["có cần", "kiêng", "gì", "không"]},
+        {"word": "早点回来", "meaning_words": ["về sớm", "nhé"]},
+        {"word": "忌酸忌辣", "meaning_words": ["kiêng", "đồ", "chua, cay"]},
+        {"word": "我很饿", "meaning_words": ["tôi", "rất", "đói"]},
+        {"word": "我胃疼", "meaning_words": ["tôi", "đau", "dạ dạy"]},
+        {"word": "下周来复查", "meaning_words": ["tuần sau", "đến", "tái khám]},
+        {"word": "要注意身体", "meaning_words": ["phải", "giữ gìn sức khỏe"]},
+        {"word": "小心点儿", "meaning_words": ["cẩn thận", "một chút"]},
+        {"word": "按照药单买药", "meaning_words": ["mua", "thuốc", "theo", "đơn này"]},
+        {"word": "不能熬夜", "meaning_words": ["không được", "thức khuya"]},
+        {"word": "我被老板夸赞", "meaning_words": ["tôi", "được", "sếp", "khen"]},
+        {"word": "我被老板骂", "meaning_words": ["tôi", "bị", "sếp", "chửi"]}
+    ]
+    },
+    {
+    "lesson_id": 16.2,
+    "vocabulary": [
+      {"word": "lông mày", "meaning": "眉毛"},
+        {"word": "mắt", "meaning": "眼睛"}
+        {"word": "mũi", "meaning": "鼻子"},
+        {"word": "miệng", "meaning": "嘴、口"},
+        {"word": "cằm", "meaning": "下巴"},
+        {"word": "ngực", "meaning": "胸部"},
+        {"word": "cánh tay", "meaning": "胳膊"},
+        {"word": "bàn tay", "meaning": "手(手掌+手背)"},
+        {"word": "chân", "meaning": "腿"},
+        {"word": "ngón chân", "meaning": "脚趾"},
+        {"word": "trán", "meaning": "额头"},
+        {"word": "tai", "meaning": "耳朵"},
+        {"word": "má", "meaning": "腮帮"},
+        {"word": "răng", "meaning": "牙齿"},
+        {"word": "môi", "meaning": "嘴唇"},
+        {"word": "lưỡi", "meaning": "舌头"},
+        {"word": "bụng", "meaning": "腹部"},
+        {"word": "đầu gối", "meaning": "膝盖"},
+        {"word": "bàn chân", "meaning": "脚"}
+    ]
+    },
+    {
+    "lesson_id": 16.3,
+    "vocabulary": [
+      {"word": "đau đầu", "meaning": "头疼"},
+        {"word": "sốt", "meaning": "发烧"},
+        {"word": "sổ mũi", "meaning": "流鼻涕"},
+        {"word": "đau răng", "meaning": "牙疼"},
+        {"word": "gãy chân", "meaning": "断腿"},
+        {"word": "đau mắt", "meaning": "眼睛疼"},
+        {"word": "cảm", "meaning": "感冒"},
+        {"word": "đau bụng", "meaning": "肚子疼"},
+        {"word": "đau lưng", "meaning": "背痛"}
+    ]
+    }
 ]
 
