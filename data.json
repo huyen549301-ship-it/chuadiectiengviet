@@ -1032,7 +1032,7 @@
         {"word": "theo", "meaning": "根据、按照"},
         {"word": "về sớm", "meaning": "早归"},
         {"word": "về muộn", "meaning": "晚归"},
-        {"word": "viên", "meaning": "颗"},
+        {"word": "viên", "meaning": "片、颗"},
         {"word": "đồ chua", "meaning": "酸的(东西)"}
     ],
     "arrange_sentences": [
@@ -1046,12 +1046,13 @@
         {"word": "忌酸忌辣", "meaning_words": ["kiêng", "đồ", "chua, cay"]},
         {"word": "我很饿", "meaning_words": ["tôi", "rất", "đói"]},
         {"word": "我胃疼", "meaning_words": ["tôi", "đau", "dạ dạy"]},
-        {"word": "下周来复查", "meaning_words": ["tuần sau", "đến", "tái khám]},
+        {"word": "下周来复查", "meaning_words": ["tuần sau", "đến", "tái khám"]},
         {"word": "要注意身体", "meaning_words": ["phải", "giữ gìn sức khỏe"]},
         {"word": "小心点儿", "meaning_words": ["cẩn thận", "một chút"]},
         {"word": "按照药单买药", "meaning_words": ["mua", "thuốc", "theo", "đơn này"]},
         {"word": "不能熬夜", "meaning_words": ["không được", "thức khuya"]},
         {"word": "我被老板夸赞", "meaning_words": ["tôi", "được", "sếp", "khen"]},
+        {"word": "每次三片", "meaning_words": ["mỗi", "lần", "3", "viên"]},
         {"word": "我被老板骂", "meaning_words": ["tôi", "bị", "sếp", "chửi"]}
     ]
     },
